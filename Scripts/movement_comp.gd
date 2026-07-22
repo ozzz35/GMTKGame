@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var base : CharacterBase = get_parent()
 
-var speed : int = 700
-var acceleration := 5000.0
-var friction := 3000.0
+var speed : int = 200
+var acceleration := 2000.0
+var friction := 2000.0
 var input_vector = Vector2.ZERO
 
 var knockback_strength : int = 700

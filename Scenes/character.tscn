@@ -12,6 +12,7 @@ size = Vector2(118, 117)
 size = Vector2(88, 84)
 
 [node name="Character" type="CharacterBody2D" unique_id=333459321 groups=["character"]]
+scale = Vector2(0.4, 0.4)
 script = ExtResource("1_ushfy")
 
 [node name="MovementComp" type="Node2D" parent="." unique_id=2102715954]
@@ -34,5 +35,5 @@ shape = SubResource("RectangleShape2D_reotu")
 texture = ExtResource("4_ejsiy")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1476429626]
+zoom = Vector2(5, 5)
 position_smoothing_enabled = true
-position_smoothing_speed = 1.0

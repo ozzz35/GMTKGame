@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://h7f21pbhjwba"]
 
-[ext_resource type="Script" uid="uid://cutox5jenumt6" path="res://Scenes/bullet.gd" id="1_oduel"]
+[ext_resource type="Script" uid="uid://cutox5jenumt6" path="res://Scripts/bullet.gd" id="1_oduel"]
 [ext_resource type="Texture2D" uid="uid://bhqroksf56c5j" path="res://icon.svg" id="1_xjght"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oduel"]

@@ -1,13 +1,26 @@
 [gd_scene format=3 uid="uid://d3a1yipnafmhy"]
 
-[ext_resource type="Texture2D" uid="uid://bhqroksf56c5j" path="res://icon.svg" id="1_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://ch5buour4cg7j" path="res://Scenes/levels/level_1.tscn" id="1_bo1nx"]
 [ext_resource type="PackedScene" uid="uid://fbqttmuh0e6b" path="res://Scenes/character.tscn" id="2_8gbba"]
+[ext_resource type="Script" uid="uid://vabwhs3vr55q" path="res://Scenes/ui_manager.gd" id="3_8gbba"]
 
 [node name="Main" type="Node2D" unique_id=727275460]
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=955050604]
-position = Vector2(317.5, 269)
-scale = Vector2(5.9609375, 5.203125)
-texture = ExtResource("1_bo1nx")
+[node name="Levels" type="Node2D" parent="." unique_id=1277246378]
 
-[node name="Character" parent="." unique_id=333459321 instance=ExtResource("2_8gbba")]
+[node name="Level1" parent="Levels" unique_id=1092754582 instance=ExtResource("1_bo1nx")]
+
+[node name="Character" parent="Levels/Level1/EntityLayer" parent_id_path=PackedInt32Array(1092754582, 1863661763) index="0" unique_id=333459321 instance=ExtResource("2_8gbba")]
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=72857900]
+script = ExtResource("3_8gbba")
+
+[node name="DimensionTimerLabel" type="Label" parent="UI" unique_id=304046088]
+offset_left = 31.0
+offset_top = 32.0
+offset_right = 237.0
+offset_bottom = 90.0
+theme_override_font_sizes/font_size = 70
+text = "[time_left]"
+
+[editable path="Levels/Level1"]
