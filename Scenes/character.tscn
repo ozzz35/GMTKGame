@@ -36,4 +36,5 @@ texture = ExtResource("4_ejsiy")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1476429626]
 zoom = Vector2(5, 5)
+process_callback = 0
 position_smoothing_enabled = true

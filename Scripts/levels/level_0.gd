@@ -5,5 +5,5 @@ extends LevelBase
 
 func _ready() -> void:
 	dimensions = [dimension_1, dimension_2]
-	level_index = 1
+	level_index = 0
 	super._ready()
