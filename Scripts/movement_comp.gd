@@ -9,7 +9,7 @@ var friction := 2000.0
 var last_velocity: Vector2 = Vector2.ZERO
 
 var dash_speed : int = 550
-var dash_friction := 5000.0
+var dash_friction := 6000.0
 var dash_duration: float = 0.02
 
 @export var dash_cooldown := 0.3
