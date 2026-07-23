@@ -1,0 +1,64 @@
+[gd_scene format=3 uid="uid://2wahv7bc00a8"]
+
+[ext_resource type="Script" path="res://Scripts/scene_transition.gd" id="1_crfs3"]
+[ext_resource type="Shader" path="res://glitch.gdshader" id="2_8sxkv"]
+[ext_resource type="AnimationLibrary" path="res://level_transition_animations.res" id="2_vin40"]
+[ext_resource type="FontFile" path="res://Assets/fonts/MotionControl-Bold.otf" id="3_sd3nk"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vin40"]
+shader = ExtResource("2_8sxkv")
+shader_parameter/glitch_intensity = 0.75200003572
+shader_parameter/glitch_speed = 9.80000046224012
+shader_parameter/rgb_split_amount = 0.05000000074506
+shader_parameter/block_size = 21.8490009903275
+shader_parameter/color_shift_chance = 0.5
+shader_parameter/base_color = Color(1, 1, 1, 1)
+shader_parameter/enabled = true
+
+[node name="SceneTransition" type="Control" unique_id=764953799]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_crfs3")
+
+[node name="Rect1" type="ColorRect" parent="." unique_id=1464678163]
+layout_mode = 0
+offset_right = 960.0
+offset_bottom = 1080.0
+scale = Vector2(1, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="Rect2" type="ColorRect" parent="." unique_id=2044562854]
+layout_mode = 0
+offset_left = 960.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+scale = Vector2(1, 2)
+color = Color(0, 0, 0, 1)
+
+[node name="level_label" type="Label" parent="." unique_id=196370711]
+material = SubResource("ShaderMaterial_vin40")
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -345.0
+offset_top = -158.0
+offset_right = 270.0
+offset_bottom = 93.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_sd3nk")
+theme_override_font_sizes/font_size = 249
+text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
+visible_characters = 7
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377889143]
+libraries/level_transition_animations = ExtResource("2_vin40")

@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://5u6fynrrn878"]
+
+[ext_resource type="Script" path="res://Scripts/enemy_base.gd" id="1_cs1oe"]
+[ext_resource type="Texture2D" uid="uid://bhqroksf56c5j" path="res://icon.svg" id="2_jd0l4"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x6wkx"]
+size = Vector2(107, 108)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bddga"]
+size = Vector2(98, 98)
+
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1215662046]
+script = ExtResource("1_cs1oe")
+
+[node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=2097216379]
+position = Vector2(-0.5, -2)
+shape = SubResource("RectangleShape2D_x6wkx")
+
+[node name="Area" type="Area2D" parent="." unique_id=1098094028]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1111155003]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_bddga")
+
+[node name="Sprite" type="Sprite2D" parent="." unique_id=1002090181]
+position = Vector2(0, -2)
+texture = ExtResource("2_jd0l4")
+
+[node name="NavTimer" type="Timer" parent="." unique_id=1532422452]
+wait_time = 0.1
+autostart = true
+
+[node name="ChaseTimer" type="Timer" parent="." unique_id=285526170]
+one_shot = true
+
+[node name="HealthText" type="Label" parent="." unique_id=1176240340]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -98.0
+offset_right = 20.0
+offset_bottom = -75.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "[health]"
+horizontal_alignment = 2
+vertical_alignment = 1
