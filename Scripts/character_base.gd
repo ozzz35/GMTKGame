@@ -10,8 +10,7 @@ class_name CharacterBase extends CharacterBody2D
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):
-		var dir: Vector2 = (get_global_mouse_position() - global_position).normalized()
-		combat_comp.shoot_bullet(dir, global_position)
+		combat_comp.shoot_bullet()
 
 func _ready() -> void:
 	EventBus.switched_dimensions.connect(_on_dimension_changed)

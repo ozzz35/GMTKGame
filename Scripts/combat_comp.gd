@@ -20,7 +20,9 @@ func _ready() -> void:
 
 ## -- Shooting System -- ##
 
-func shoot_bullet(direction, pos):
+func shoot_bullet():
+	var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	
 	shot.emit()
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
@@ -29,6 +31,7 @@ func shoot_bullet(direction, pos):
 	bullet.player = true
 	bullet.global_position = muzzle.global_position
 	bullet.direction = direction
+
 
 
 ## -- Damage/Death System -- ##
