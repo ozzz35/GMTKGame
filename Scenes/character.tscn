@@ -124,7 +124,6 @@ animations = [{
 }]
 
 [node name="Character" type="CharacterBody2D" unique_id=333459321 groups=["character"]]
-scale = Vector2(0.7, 0.7)
 script = ExtResource("1_ushfy")
 
 [node name="MovementComp" type="Node2D" parent="." unique_id=2102715954]
@@ -134,7 +133,7 @@ script = ExtResource("2_owm7s")
 script = ExtResource("3_nytcm")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1476429626]
-zoom = Vector2(5, 5)
+zoom = Vector2(1.2, 1.2)
 process_callback = 0
 position_smoothing_enabled = true
 
@@ -148,7 +147,7 @@ shape = SubResource("RectangleShape2D_2mse5")
 shape = SubResource("RectangleShape2D_reotu")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=1549604272]
-scale = Vector2(0.1, 0.1)
+scale = Vector2(0.32, 0.32)
 
 [node name="Lower" type="AnimatedSprite2D" parent="Sprites" unique_id=1163252353]
 scale = Vector2(0.99999994, 0.99999994)

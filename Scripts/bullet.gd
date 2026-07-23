@@ -1,6 +1,6 @@
 extends Area2D
 
-var speed = 1000
+var speed = 3000
 var direction = Vector2(1, 0)
 var player : bool = true
 

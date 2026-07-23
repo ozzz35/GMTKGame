@@ -2,14 +2,14 @@ extends Node2D
 
 @onready var base : CharacterBase = get_parent()
 
-var speed : int = 200
-var acceleration := 2000.0
-var friction := 2000.0
+var speed : int = 800
+var acceleration := 6000.0
+var friction := 5000.0
 
 var last_velocity: Vector2 = Vector2.ZERO
 
-var dash_speed : int = 550
-var dash_friction := 6000.0
+var dash_speed : int = 2000
+var dash_friction := 12000.0
 var dash_duration: float = 0.02
 
 @export var dash_cooldown := 0.3
