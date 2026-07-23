@@ -3,7 +3,24 @@ class_name CharacterBase extends CharacterBody2D
 @onready var movement_comp: Node2D = $MovementComp
 @onready var combat_comp: Node2D = $CombatComp
 
+@onready var camera: Camera2D = $Camera
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):
 		var dir: Vector2 = (get_global_mouse_position() - global_position).normalized()
 		combat_comp.shoot_bullet(dir, global_position)
+
+func _ready() -> void:
+	EventBus.switched_dimensions.connect(_on_dimension_changed)
+
+func _on_dimension_changed():
+	zoom_in_out_effect()
+
+func zoom_in_out_effect():
+	var tween: Tween = create_tween()
+	tween.set_trans(Tween.TRANS_EXPO)
+	
+	tween.tween_property(camera, "zoom", Vector2(5.5, 5.5), 0.1)
+	
+	tween.set_trans(Tween.TRANS_CUBIC)
+	tween.tween_property(camera, "zoom", Vector2(5, 5), 0.9).set_delay(0.07)

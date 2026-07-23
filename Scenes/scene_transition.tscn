@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://dvmyw38rqlwxi" path="res://Scripts/scene_transition.gd" id="1_crfs3"]
 [ext_resource type="Shader" uid="uid://dt7tyamkbyl2a" path="res://glitch.gdshader" id="2_8sxkv"]
 [ext_resource type="AnimationLibrary" uid="uid://ddfbcwm30fjeb" path="res://level_transition_animations.res" id="2_vin40"]
+[ext_resource type="FontFile" uid="uid://bfjftdmbh2l22" path="res://Assets/fonts/MotionControl-Bold.otf" id="3_sd3nk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_vin40"]
 shader = ExtResource("2_8sxkv")
@@ -52,8 +53,11 @@ offset_right = 270.0
 offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_font_sizes/font_size = 184
+theme_override_fonts/font = ExtResource("3_sd3nk")
+theme_override_font_sizes/font_size = 249
 text = "Level 1"
+horizontal_alignment = 1
+vertical_alignment = 1
 visible_characters = 7
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1377889143]

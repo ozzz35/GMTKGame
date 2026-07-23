@@ -36,9 +36,12 @@ func _ready() -> void:
 			dimensions[i].process_mode = Node.PROCESS_MODE_DISABLED
 	
 	current_dimension = dimensions[current_dimension_id]
-	print(current_dimension)
 
 func switch_dimensions():
+	EventBus.switched_dimensions.emit()
+	
+	await get_tree().create_timer(0.03).timeout
+	
 	current_dimension.visible = false
 	current_dimension.process_mode = Node.PROCESS_MODE_DISABLED #to avoid any collisions with other dimensions
 	
@@ -47,8 +50,7 @@ func switch_dimensions():
 	
 	current_dimension.visible = true
 	current_dimension.process_mode = Node.PROCESS_MODE_INHERIT
-	
-	print(current_dimension)
+
 
 func _process(delta: float) -> void:
 	if switch_timer and not switch_timer.is_stopped():
