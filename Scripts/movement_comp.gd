@@ -11,6 +11,8 @@ var knockback_strength : int = 700
 var knockback_friction : float = 4000.0
 var knockback_velocity : Vector2 = Vector2.ZERO
 
+@onready var lower_body: AnimatedSprite2D = $"../Sprites/Lower"
+
 var can_recieve_input : bool = true
 
 func _physics_process(delta: float) -> void:
@@ -35,6 +37,10 @@ func _physics_process(delta: float) -> void:
 	base.velocity = final_velocity
 	base.move_and_slide()
 	base.velocity = old_move_velocity
+
+
+
+
 
 func apply_knockback(dir: Vector2):
 	knockback_velocity = dir.normalized() * knockback_strength

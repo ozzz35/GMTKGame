@@ -31,6 +31,8 @@ func _ready() -> void:
 		if i == current_dimension_id:
 			dimensions[i].visible = true
 			dimensions[i].process_mode = Node.PROCESS_MODE_INHERIT
+			
+			#dimensions[i].try_spawn_enemies()
 		else:
 			dimensions[i].visible = false
 			dimensions[i].process_mode = Node.PROCESS_MODE_DISABLED
@@ -47,6 +49,8 @@ func switch_dimensions():
 	
 	current_dimension_id = wrapi(current_dimension_id + 1, 0, dimension_count)
 	current_dimension = dimensions[current_dimension_id]
+	
+	#current_dimension.try_spawn_enemies()
 	
 	current_dimension.visible = true
 	current_dimension.process_mode = Node.PROCESS_MODE_INHERIT

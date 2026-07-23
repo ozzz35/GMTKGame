@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var base : CharacterBase = get_parent()
+@onready var muzzle: Marker2D = $"../Sprites/Upper/Muzzle"
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 
@@ -26,7 +27,7 @@ func shoot_bullet(direction, pos):
 	bullet.damage = randi_range(14, 25)
 	bullet.fired_pos = global_position
 	bullet.player = true
-	bullet.global_position = pos
+	bullet.global_position = muzzle.global_position
 	bullet.direction = direction
 
 
