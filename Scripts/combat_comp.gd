@@ -40,6 +40,9 @@ func take_hit(damage : int, from_pos : Vector2):
 	if not base.can_take_damage():
 		return
 	
+	if base.movement_comp.invincible:
+		return
+	
 	took_damage.emit(damage, from_pos)
 	health_changed.emit(health)
 	

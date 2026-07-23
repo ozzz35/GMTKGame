@@ -11,6 +11,9 @@ class_name CharacterBase extends CharacterBody2D
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):
 		combat_comp.shoot_bullet()
+	
+	if Input.is_action_just_pressed("dash"):
+		movement_comp.dash()
 
 func _ready() -> void:
 	EventBus.switched_dimensions.connect(_on_dimension_changed)
