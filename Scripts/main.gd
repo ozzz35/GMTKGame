@@ -10,10 +10,6 @@ var current_level_node: LevelBase = null
 func _ready() -> void:
 	EventBus.level_load.connect(next_level)
 	load_level(0)
-	await get_tree().create_timer(5.0).timeout
-	SoundManager.switch_music("intense", 4)
-	await get_tree().create_timer(10.0).timeout
-	SoundManager.switch_music("game", 4)
 
 
 func load_level(index: int) -> void:

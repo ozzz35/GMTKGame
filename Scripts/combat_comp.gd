@@ -22,7 +22,7 @@ func _ready() -> void:
 
 func shoot_bullet():
 	var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	
+	SoundManager.play_sfx("gunshot")
 	shot.emit()
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)

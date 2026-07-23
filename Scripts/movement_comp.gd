@@ -50,7 +50,13 @@ func _physics_process(delta: float) -> void:
 	else:
 		base.velocity = base.velocity.move_toward(Vector2.ZERO, delta * friction)
 	
-	
+	if not input_vector == Vector2.ZERO:
+		if not SoundManager.footstep_playing:
+			SoundManager.footstep_play()
+			SoundManager.footstep_playing = true
+	else:
+		SoundManager.footstep_stop()
+		SoundManager.footstep_playing = false
 	
 	var final_velocity = base.velocity + knockback_velocity
 	
@@ -69,6 +75,7 @@ func dash():
 	if dash_direction == Vector2.ZERO:
 		dash_direction = last_velocity
 	
+	SoundManager.play_sfx("dash")
 	can_dash = false
 	is_dashing = true
 	invincible = true

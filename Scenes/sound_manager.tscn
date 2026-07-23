@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://chfxg02jtq4ry" path="res://Scripts/sound_manager.gd" id="1_32i44"]
 [ext_resource type="AudioStream" uid="uid://bv3fu5i0dmhjd" path="res://Assets/music/GMTK jam.mp3" id="2_1ohty"]
 [ext_resource type="AudioStream" uid="uid://d1g8mnj0fesqt" path="res://Assets/music/GMTK Jam instense.mp3" id="3_tox07"]
+[ext_resource type="AudioStream" uid="uid://cs6clra24yh8f" path="res://Assets/sfx/Footsteps.mp3" id="4_tox07"]
 
 [node name="SoundManager" type="Node" unique_id=984199000]
 script = ExtResource("1_32i44")
@@ -19,3 +20,6 @@ volume_db = -80.0
 bus = &"Music"
 
 [node name="SFXPlayers" type="Node" parent="." unique_id=825187273]
+
+[node name="footstep_player" type="AudioStreamPlayer" parent="SFXPlayers" unique_id=1935798371]
+stream = ExtResource("4_tox07")

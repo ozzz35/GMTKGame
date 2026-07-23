@@ -153,8 +153,7 @@ scale = Vector2(0.1, 0.1)
 [node name="Lower" type="AnimatedSprite2D" parent="Sprites" unique_id=1163252353]
 scale = Vector2(0.99999994, 0.99999994)
 sprite_frames = SubResource("SpriteFrames_hgna0")
-animation = &"idle"
-frame_progress = 0.5079623
+animation = &"walk"
 offset = Vector2(0, -128.81)
 
 [node name="Upper" type="Sprite2D" parent="Sprites" unique_id=190929163]

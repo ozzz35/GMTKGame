@@ -6,10 +6,17 @@ extends Node
 @onready var music_players: Node = $MusicPlayers
 @onready var music1: AudioStreamPlayer = $MusicPlayers/Music1
 @onready var music2: AudioStreamPlayer = $MusicPlayers/Music2
+@onready var footstep_player: AudioStreamPlayer = $SFXPlayers/footstep_player
+
+var footstep_playing: bool = false
 
 const SOUNDS: Dictionary = {
 	"intense" : preload("uid://d1g8mnj0fesqt"),
-	"game" : preload("uid://bv3fu5i0dmhjd")
+	"game" : preload("uid://bv3fu5i0dmhjd"),
+	"dash" : preload("uid://bmhmk3gxgmctw"),
+	"footstep" : preload("uid://cs6clra24yh8f"),
+	"reload" : preload("uid://daaa7vuq05v55"),
+	"gunshot" : preload("uid://2mcq7ymuobwb")
 	
 }
 
@@ -45,6 +52,12 @@ func get_other_music_player(music_player):
 			return player
 
 ## -- SFX -- ##
+
+func footstep_play():
+	footstep_player.play()
+
+func footstep_stop():
+	footstep_player.play()
 
 func play_sfx(sfx_key: String, volume_db: float = 0.0):
 	if not SOUNDS.has(sfx_key): return
