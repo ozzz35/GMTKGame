@@ -9,7 +9,122 @@
 size = Vector2(118, 117)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_reotu"]
+<<<<<<< Updated upstream
 size = Vector2(88, 84)
+=======
+size = Vector2(56, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mse5"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(1000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_reotu"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5ess"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbia7"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kq7hj"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(3000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7iw6i"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(0, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l1rcp"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(1000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le1tg"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(2000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2daya"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(3000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvyft"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(0, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm6ib"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(1000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q5mnj"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(2000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w85my"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(3000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_et0tf"]
+atlas = ExtResource("5_ejsiy")
+region = Rect2(0, 3000, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgna0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mse5")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_reotu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a5ess")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbia7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kq7hj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7iw6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l1rcp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le1tg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2daya")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvyft")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm6ib")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q5mnj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w85my")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_et0tf")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 20.0
+}]
+>>>>>>> Stashed changes
 
 [node name="Character" type="CharacterBody2D" unique_id=333459321 groups=["character"]]
 script = ExtResource("1_ushfy")
