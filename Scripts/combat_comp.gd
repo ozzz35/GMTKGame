@@ -8,6 +8,10 @@ extends Node2D
 var dead : bool = false
 var health : int
 var max_health : int = 100
+var bullets : int = 10
+var max_bullets : int = 10
+var reload_time : float = 3.0
+var is_reloading : bool = false
 
 signal is_dead
 signal took_damage(damage: int, from_pos: Vector2)
@@ -21,8 +25,17 @@ func _ready() -> void:
 ## -- Shooting System -- ##
 
 func shoot_bullet():
+	if is_reloading:
+		return
+		
+	if bullets <= 0:
+		reload()
+		return
+	
+	EventBus.bullets_changed.emit(bullets, is_reloading)
 	var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	SoundManager.play_sfx("gunshot")
+	bullets -= 1
 	shot.emit()
 	var bullet = bullet_scene.instantiate()
 	get_tree().current_scene.add_child(bullet)
@@ -32,7 +45,15 @@ func shoot_bullet():
 	bullet.global_position = muzzle.global_position
 	bullet.direction = direction
 
-
+func reload():
+	if is_reloading:
+		return
+	
+	is_reloading = true
+	EventBus.bullets_changed.emit(bullets, is_reloading)
+	await get_tree().create_timer(reload_time).timeout
+	bullets += max_bullets
+	is_reloading = false
 
 
 ## -- Damage/Death System -- ##
