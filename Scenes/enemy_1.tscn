@@ -60,6 +60,7 @@ _data = {
 }
 
 [node name="Enemy1" unique_id=1215662046 instance=ExtResource("1_jwqgc")]
+z_index = 1
 
 [node name="Lower" type="AnimatedSprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1064157121) index="0" unique_id=1557720199]
 sprite_frames = SubResource("SpriteFrames_jwqgc")

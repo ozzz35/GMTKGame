@@ -70,10 +70,14 @@ _data = {
 }
 
 [node name="Shell" type="RigidBody2D" unique_id=1609713561]
+visible = false
+mass = 0.001
+gravity_scale = 0.0
 angular_damp = 5.0
 script = ExtResource("1_j4ghq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=29296485]
+scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_g08il")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=2049558054]

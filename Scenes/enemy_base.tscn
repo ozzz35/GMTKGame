@@ -11,6 +11,7 @@ size = Vector2(107, 108)
 size = Vector2(98, 98)
 
 [node name="EnemyBase" type="CharacterBody2D" unique_id=1215662046 groups=["enemy"]]
+z_index = 1
 script = ExtResource("1_cs1oe")
 bullet_scene = ExtResource("2_x6wkx")
 chase_speed = 400.0

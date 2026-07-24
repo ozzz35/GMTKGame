@@ -76,6 +76,7 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 func pump_gun():
 	
 	SoundManager.play_sfx("pump")
+	dump_shell()
 	await get_tree().create_timer(0.5).timeout
 	pump = false
 
@@ -86,7 +87,6 @@ func reload():
 	is_reloading = true
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 	SoundManager.play_sfx("reload")
-	dump_shell()
 	await get_tree().create_timer(reload_time).timeout
 	bullets = max_bullets
 	is_reloading = false
@@ -97,7 +97,6 @@ func dump_shell():
 	get_tree().current_scene.add_child(new_shell)
 	new_shell.global_position = muzzle.global_position
 	new_shell.angular_velocity = randf_range(20.0, 35.0)
-
 	
 
 ## -- Damage/Death System -- ##
