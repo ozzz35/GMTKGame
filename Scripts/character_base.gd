@@ -12,7 +12,7 @@ var crosshair : CompressedTexture2D = preload("res://Assets/simple_crosshair.png
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):
-		combat_comp.shoot_bullet()
+		combat_comp.shoot_shotgun(7, 40)
 	
 	if Input.is_action_just_pressed("dash"):
 		movement_comp.dash()

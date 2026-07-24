@@ -26,34 +26,50 @@ func _ready() -> void:
 
 ## -- Shooting System -- ##
 
-func shoot_bullet():
+func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 	if is_reloading:
 		return
 		
-	if bullets < 0:
+	if bullets <= 0:
 		reload()
 		return
 	
 	if pump:
 		return
 	
+	bullets -= 1
 	EventBus.bullets_changed.emit(bullets, is_reloading)
-	var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
 	upper_body.play("shooting")
 	SoundManager.play_sfx("gunshot")
-	bullets -= 1
 	shot.emit()
-	var bullet = bullet_scene.instantiate()
-	get_tree().current_scene.add_child(bullet)
-	bullet.damage = randi_range(14, 25)
-	bullet.fired_pos = global_position
-	bullet.player = true
-	bullet.global_position = muzzle.global_position
-	bullet.direction = direction
+	
+	var base_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	var spread_rad: float = deg_to_rad(spread_angle_deg) / 2.0
+	
+	for i in range(pellet_count):
+		var bullet = bullet_scene.instantiate()
+		get_tree().current_scene.add_child(bullet)
+		
+		var random_offset: float = randf_range(-spread_rad, spread_rad)
+		var pellet_direction: Vector2 = base_direction.rotated(random_offset)
+		
+		bullet.damage = randi_range(10, 15)
+		bullet.fired_pos = global_position
+		bullet.player = true
+		bullet.global_position = muzzle.global_position
+		bullet.direction = pellet_direction
+		
+		bullet.speed *= randf_range(0.80, 1.2)
+		
+		var delay: float = randf_range(0.005, 0.005)
+		await get_tree().create_timer(delay).timeout
+
 	await upper_body.animation_finished
+	
 	upper_body.play("idle")
 	pump_gun()
-	
+
+
 func pump_gun():
 	pump = true
 	SoundManager.play_sfx("pump")
