@@ -12,14 +12,10 @@ var detection_range: float = 1000.0
 var character: CharacterBase
 @onready var muzzle: Marker2D = %Muzzle
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
-@onready var navigation_agent: NavigationAgent2D = $NavigationAgent2D
+@onready var navigation_agent: NavigationAgent2D = $NavigationAgent
 @onready var nav_timer: Timer = $NavTimer
 @onready var chase_timer: Timer = $ChaseTimer
-@onready var sprite: Sprite2D = $Sprite2D
-@onready var health_bar: ProgressBar = $HealthBar
 @onready var health_text: Label = $HealthText
-
-@onready var movement_animation_player: AnimationPlayer = $Sprites/MovementAnimationPlayer
 
 
 enum State { CHASE, RETREAT, IDLE, ACTION }
@@ -37,7 +33,6 @@ var strafe_timer : float = 0.0
 var strafe_change_interval : float = 1.0
 
 @export var bullet_scene: PackedScene
-var bullet_phase : int = 1
 
 @export var chase_speed: float = 200
 @export var action_speed: float = 150
@@ -69,19 +64,6 @@ func _physics_process(delta: float) -> void:
 	rotation = (character.global_position - global_position).angle()
 	
 	process_ai(delta)
-	
-	play_animation()
-
-func play_animation():
-	if velocity == Vector2.ZERO:
-		if movement_animation_player.current_animation != "idle":
-			movement_animation_player.play("idle")
-	else:
-		if movement_animation_player.current_animation != "walk":
-			movement_animation_player.play("walk")
-		
-		
-
 
 ##-- Health --##
 
@@ -128,7 +110,7 @@ func process_ai(delta):
 
 func change_state(new_state: State):
 	current_state = new_state
-	
+	print(new_state)
 	match current_state:
 		State.CHASE:
 			speed = chase_speed
@@ -147,7 +129,7 @@ func state_chase(delta):
 	go_to(character.global_position)
 	pathfind(delta)
 	
-	if dist_to_player <= chase_threshold:
+	if dist_to_player <= chase_threshold and can_see_player():
 		change_state(State.ACTION)
 
 
@@ -222,27 +204,25 @@ func go_to(pos: Vector2):
 func shoot(dir : Vector2):
 	var bullet : Area2D = bullet_scene.instantiate()
 	
-	bullet.global_position = muzzle.global_position
+	bullet.global_position = global_position
 	
 	var error = deg_to_rad(10)
 	dir = dir.rotated(randf_range(-error, error))
 	
 	bullet.rotation = dir.angle()
 	bullet.direction = -dir.normalized()
-	bullet.phase = bullet_phase
-	bullet.source = "enemy"
+	bullet.player = false
 	
-	var bullets_root = get_tree().current_scene.get_node("World/Entity Root/Bullets Root")
+	var bullets_root = get_parent()
 	if bullets_root:
 		bullets_root.add_child(bullet)
 	else:
 		print("Bullets Root not found")
 
-func can_see_player():
-	if dist_to_player <= detection_range and not await has_wall_between(character):
+func can_see_player() -> bool:
+	if dist_to_player <= detection_range and not has_wall_between(character):
 		return true
-	else:
-		return false
+	return false
 
 func has_wall_between(target: Node2D) -> bool:
 	var space_state = get_world_2d().direct_space_state
@@ -250,8 +230,8 @@ func has_wall_between(target: Node2D) -> bool:
 		global_position,
 		target.global_position
 	)
-	query.collision_mask = 4
-	query.exclude = [self]
+	query.collision_mask = 1
+	query.exclude = [self, target]
 	var result = space_state.intersect_ray(query)
 	return !result.is_empty()
 

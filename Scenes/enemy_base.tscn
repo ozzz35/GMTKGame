@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dvtfm1mt56wsp" path="res://Scripts/enemy_base.gd" id="1_cs1oe"]
 [ext_resource type="Texture2D" uid="uid://bhqroksf56c5j" path="res://icon.svg" id="2_jd0l4"]
+[ext_resource type="PackedScene" uid="uid://h7f21pbhjwba" path="res://Scenes/bullet.tscn" id="2_x6wkx"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x6wkx"]
 size = Vector2(107, 108)
@@ -9,8 +10,10 @@ size = Vector2(107, 108)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bddga"]
 size = Vector2(98, 98)
 
-[node name="EnemyBase" type="CharacterBody2D" unique_id=1215662046]
+[node name="EnemyBase" type="CharacterBody2D" unique_id=1215662046 groups=["enemy"]]
 script = ExtResource("1_cs1oe")
+bullet_scene = ExtResource("2_x6wkx")
+chase_speed = 400.0
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=2097216379]
 position = Vector2(-0.5, -2)
@@ -22,9 +25,15 @@ shape = SubResource("RectangleShape2D_x6wkx")
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_bddga")
 
+[node name="Sprites" type="Node2D" parent="." unique_id=1064157121]
+
 [node name="Sprite" type="Sprite2D" parent="." unique_id=1002090181]
 position = Vector2(0, -2)
 texture = ExtResource("2_jd0l4")
+
+[node name="Muzzle" type="Marker2D" parent="." unique_id=683985981]
+unique_name_in_owner = true
+position = Vector2(65, 2)
 
 [node name="NavTimer" type="Timer" parent="." unique_id=1532422452]
 wait_time = 0.1
@@ -48,3 +57,11 @@ grow_vertical = 2
 text = "[health]"
 horizontal_alignment = 2
 vertical_alignment = 1
+
+[node name="NavigationAgent" type="NavigationAgent2D" parent="." unique_id=1610009017]
+path_desired_distance = 10.0
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 310.46
+debug_path_custom_point_size = 9.4
+debug_path_custom_line_width = 4.03

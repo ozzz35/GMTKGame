@@ -132,7 +132,7 @@ script = ExtResource("2_owm7s")
 [node name="CombatComp" type="Node2D" parent="." unique_id=4163512]
 script = ExtResource("3_nytcm")
 
-[node name="Camera" type="Camera2D" parent="." unique_id=1476429626]
+[node name="Camera" type="Camera2D" parent="." unique_id=1476429626 groups=["character"]]
 process_callback = 0
 position_smoothing_enabled = true
 
