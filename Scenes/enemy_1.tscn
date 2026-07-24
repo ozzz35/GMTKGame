@@ -2,9 +2,12 @@
 
 [ext_resource type="PackedScene" uid="uid://m26rta5efifc" path="res://Scenes/enemy_base.tscn" id="1_jwqgc"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwqgc"]
+
 [node name="Enemy1" unique_id=1215662046 instance=ExtResource("1_jwqgc")]
 
 [node name="Lower" type="AnimatedSprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1064157121) index="0" unique_id=1557720199]
+sprite_frames = SubResource("SpriteFrames_jwqgc")
 
 [node name="Upper" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1064157121) index="1" unique_id=1585270795]
 
