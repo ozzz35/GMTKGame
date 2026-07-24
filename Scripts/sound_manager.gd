@@ -16,7 +16,8 @@ const SOUNDS: Dictionary = {
 	"dash" : preload("uid://bmhmk3gxgmctw"),
 	"footstep" : preload("uid://cs6clra24yh8f"),
 	"reload" : preload("uid://daaa7vuq05v55"),
-	"gunshot" : preload("uid://2mcq7ymuobwb")
+	"gunshot" : preload("uid://2mcq7ymuobwb"),
+	"pump": preload("res://Assets/sfx/pump.mp3")
 	
 }
 

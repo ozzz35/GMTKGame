@@ -13,6 +13,7 @@ var bullets : int = 10
 var max_bullets : int = 10
 var reload_time : float = 3.0
 var is_reloading : bool = false
+var pump : bool = false
 
 signal is_dead
 signal took_damage(damage: int, from_pos: Vector2)
@@ -33,6 +34,8 @@ func shoot_bullet():
 		reload()
 		return
 	
+	if pump:
+		return
 	
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 	var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
@@ -49,6 +52,13 @@ func shoot_bullet():
 	bullet.direction = direction
 	await upper_body.animation_finished
 	upper_body.play("idle")
+	pump_gun()
+	
+func pump_gun():
+	pump = true
+	SoundManager.play_sfx("pump")
+	await get_tree().create_timer(0.5).timeout
+	pump = false
 
 func reload():
 	if is_reloading:
