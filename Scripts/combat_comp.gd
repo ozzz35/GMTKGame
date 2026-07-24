@@ -5,9 +5,12 @@ extends Node2D
 @onready var upper_body: AnimatedSprite2D = $"../Sprites/Upper"
 @onready var shell_thingy: Marker2D = $"../Sprites/Upper/Shell_thingy"
 @onready var flying_shell_marker: Marker2D = $"../Sprites/Upper/flying_shell_marker"
+@onready var camera: Camera2D = $"../Camera"
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 @onready var shell = preload("res://Scenes/shell.tscn")
+@onready var damage_label = preload("uid://c517qyr5kd11h")
+
 
 var dead : bool = false
 var health : int
@@ -39,6 +42,8 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 	
 	if pump:
 		return
+	
+	camera.shake(17, 0.7)
 	
 	pump = true
 	bullets -= 1
@@ -112,7 +117,7 @@ func dump_shell():
 func take_hit(damage : int, from_pos : Vector2):
 	if base.movement_comp.invincible:
 		return
-	
+	add_damage_label(damage)
 	health -= damage
 	took_damage.emit(damage, from_pos)
 	health_changed.emit(health)
@@ -128,6 +133,14 @@ func take_hit(damage : int, from_pos : Vector2):
 func death():
 	is_dead.emit()
 	base.queue_free()
+
+func add_damage_label(damage):
+	var new_damage_label = damage_label.instantiate() as Label
+	new_damage_label.text = str(damage)
+	new_damage_label.global_position = global_position - Vector2(0, 20)
+	new_damage_label.add_theme_color_override("font_color", Color("C92C60"))
+	new_damage_label.add_theme_color_override("font_size", 10)
+	get_tree().current_scene.call_deferred("add_child", new_damage_label)
 
 
 ## -- Signals -- ##

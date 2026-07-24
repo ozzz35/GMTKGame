@@ -35,6 +35,7 @@ var strafe_timer : float = 0.0
 var strafe_change_interval : float = 1.0
 
 @export var bullet_scene: PackedScene
+@onready var damage_label = preload("uid://c517qyr5kd11h")
 
 @export var chase_speed: float = 200
 @export var action_speed: float = 150
@@ -51,6 +52,9 @@ var original_position: Vector2
 
 var color: String # either "blue" or "red"
 
+var current_labels: Array[Label] = []
+var last_damage_label: Label
+var last_damage: int
 
 func _ready() -> void:
 	
@@ -83,7 +87,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func take_damage(damage: int):
 	health -= damage
-	
+	add_damage_label(damage)
+	last_damage = damage
 	animation_player.stop()
 	animation_player.play("damage")
 	damage_shake()
@@ -103,6 +108,29 @@ func die():
 
 func update_health_bar():
 	health_bar.value = health
+
+func add_damage_label(damage: int) -> void:
+	var total_damage: int = damage
+	
+	if not current_labels.is_empty():
+		var old_label = current_labels.pop_back()
+		if is_instance_valid(old_label):
+			total_damage += old_label.get("current_total_damage") if "current_total_damage" in old_label else old_label.text.to_int()
+			old_label.queue_free()
+	
+	var new_damage_label = damage_label.instantiate() as Label
+	new_damage_label.text = str(total_damage)
+	new_damage_label.global_position = global_position - Vector2(0, 20)
+	
+	new_damage_label.set("current_total_damage", total_damage)
+	
+	current_labels.append(new_damage_label)
+	get_tree().current_scene.call_deferred("add_child", new_damage_label)
+	
+	await new_damage_label.label_finished
+	
+	if is_instance_valid(new_damage_label):
+		current_labels.erase(new_damage_label)
 
 ## -- AI -- ##
 

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://cf7s48wfxta66" path="res://Scripts/character_base.gd" id="1_ushfy"]
 [ext_resource type="Script" uid="uid://ddpql1t4v3qdh" path="res://Scripts/movement_comp.gd" id="2_owm7s"]
 [ext_resource type="Script" uid="uid://l8dybsj44cmt" path="res://Scripts/combat_comp.gd" id="3_nytcm"]
+[ext_resource type="Script" uid="uid://4042ffa1ckrd" path="res://Scenes/camera.gd" id="4_wbia7"]
 [ext_resource type="Texture2D" uid="uid://c078qol2td413" path="res://Assets/character_sprite_upper.png" id="5_2mse5"]
 [ext_resource type="Texture2D" uid="uid://mr4xtc8dpw2g" path="res://Assets/character_sprite.png" id="5_ejsiy"]
 [ext_resource type="Texture2D" uid="uid://p53vh5m0f0j0" path="res://Assets/character_sprite_upper_shooting.png" id="6_2mse5"]
@@ -11,9 +12,6 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mse5"]
 size = Vector2(37, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_reotu"]
-size = Vector2(56, 22)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2mse5"]
 atlas = ExtResource("5_ejsiy")
@@ -334,6 +332,9 @@ animations = [{
 "speed": 50.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_reotu"]
+size = Vector2(153, 74)
+
 [node name="Character" type="CharacterBody2D" unique_id=333459321 groups=["character"]]
 script = ExtResource("1_ushfy")
 
@@ -346,15 +347,11 @@ script = ExtResource("3_nytcm")
 [node name="Camera" type="Camera2D" parent="." unique_id=1476429626 groups=["character"]]
 process_callback = 0
 position_smoothing_enabled = true
+script = ExtResource("4_wbia7")
 
 [node name="CollisionShape" type="CollisionShape2D" parent="." unique_id=1582207757]
 position = Vector2(-0.5, 1)
 shape = SubResource("RectangleShape2D_2mse5")
-
-[node name="Area" type="Area2D" parent="." unique_id=1419935688]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=938041913]
-shape = SubResource("RectangleShape2D_reotu")
 
 [node name="Sprites" type="Node2D" parent="." unique_id=1549604272]
 scale = Vector2(0.32, 0.32)
@@ -384,3 +381,9 @@ position = Vector2(37.53, -216.445)
 
 [node name="flying_shell_marker" type="Marker2D" parent="Sprites/Upper" unique_id=1338762688]
 position = Vector2(175.015, -185.385)
+
+[node name="Area" type="Area2D" parent="." unique_id=1419935688]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=938041913]
+position = Vector2(-1.5, 1)
+shape = SubResource("RectangleShape2D_reotu")

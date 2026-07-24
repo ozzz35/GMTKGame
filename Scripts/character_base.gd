@@ -26,16 +26,7 @@ func _physics_process(delta: float) -> void:
 	animation()
 
 func _on_dimension_changed():
-	zoom_in_out_effect()
-
-func zoom_in_out_effect():
-	var tween: Tween = create_tween()
-	tween.set_trans(Tween.TRANS_EXPO)
-	
-	tween.tween_property(camera, "zoom", Vector2(1.35, 1.35), 0.1)
-	
-	tween.set_trans(Tween.TRANS_CUBIC)
-	tween.tween_property(camera, "zoom", Vector2(1, 1), 0.9).set_delay(0.07)
+	camera.zoom_in_out_effect()
 
 func animation():
 	if velocity == Vector2.ZERO:

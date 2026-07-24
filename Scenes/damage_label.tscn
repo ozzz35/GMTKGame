@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c517qyr5kd11h"]
+
+[ext_resource type="FontFile" uid="uid://bfjftdmbh2l22" path="res://Assets/fonts/MotionControl-Bold.otf" id="1_0m621"]
+[ext_resource type="Script" uid="uid://ktormfcicvg2" path="res://Scripts/damage_label.gd" id="2_vcbt6"]
+
+[node name="DamageLabel" type="Label" unique_id=327618840]
+z_index = 2
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("1_0m621")
+theme_override_font_sizes/font_size = 150
+text = "-1"
+script = ExtResource("2_vcbt6")
