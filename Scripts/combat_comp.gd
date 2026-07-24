@@ -5,6 +5,8 @@ extends Node2D
 @onready var upper_body: AnimatedSprite2D = $"../Sprites/Upper"
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
+@onready var shell = preload("res://Scenes/shell.tscn")
+
 
 var dead : bool = false
 var health : int
@@ -62,7 +64,7 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 		
 		bullet.speed *= randf_range(0.80, 1.2)
 		
-		var delay: float = randf_range(0.005, 0.005)
+		var delay: float = randf_range(0.001, 0.001)
 		await get_tree().create_timer(delay).timeout
 
 	await upper_body.animation_finished
@@ -84,11 +86,19 @@ func reload():
 	is_reloading = true
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 	SoundManager.play_sfx("reload")
+	dump_shell()
 	await get_tree().create_timer(reload_time).timeout
 	bullets = max_bullets
 	is_reloading = false
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 
+func dump_shell():
+	var new_shell = shell.instantiate()
+	get_tree().current_scene.add_child(new_shell)
+	new_shell.global_position = muzzle.global_position
+	new_shell.angular_velocity = randf_range(20.0, 35.0)
+
+	
 
 ## -- Damage/Death System -- ##
 
