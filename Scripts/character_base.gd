@@ -8,6 +8,8 @@ class_name CharacterBase extends CharacterBody2D
 @onready var lower_body: AnimatedSprite2D = $Sprites/Lower
 @onready var upper_body: AnimatedSprite2D = $Sprites/Upper
 
+var crosshair : CompressedTexture2D = preload("res://Assets/simple_crosshair.png")
+
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):
 		combat_comp.shoot_bullet()
@@ -16,6 +18,7 @@ func _input(event: InputEvent) -> void:
 		movement_comp.dash()
 
 func _ready() -> void:
+	Input.set_custom_mouse_cursor(crosshair)
 	EventBus.switched_dimensions.connect(_on_dimension_changed)
 
 func _physics_process(delta: float) -> void:
