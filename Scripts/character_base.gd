@@ -6,7 +6,7 @@ class_name CharacterBase extends CharacterBody2D
 @onready var camera: Camera2D = $Camera
 
 @onready var lower_body: AnimatedSprite2D = $Sprites/Lower
-@onready var upper_body: Sprite2D = $Sprites/Upper
+@onready var upper_body: AnimatedSprite2D = $Sprites/Upper
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("mouse_left"):

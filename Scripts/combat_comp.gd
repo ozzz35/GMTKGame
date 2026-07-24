@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var base : CharacterBase = get_parent()
 @onready var muzzle: Marker2D = $"../Sprites/Upper/Muzzle"
+@onready var upper_body: AnimatedSprite2D = $"../Sprites/Upper"
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 
@@ -32,8 +33,10 @@ func shoot_bullet():
 		reload()
 		return
 	
+	
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 	var direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
+	upper_body.play("shooting")
 	SoundManager.play_sfx("gunshot")
 	bullets -= 1
 	shot.emit()
@@ -44,6 +47,8 @@ func shoot_bullet():
 	bullet.player = true
 	bullet.global_position = muzzle.global_position
 	bullet.direction = direction
+	await upper_body.animation_finished
+	upper_body.play("idle")
 
 func reload():
 	if is_reloading:

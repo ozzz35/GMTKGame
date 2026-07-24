@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://l8dybsj44cmt" path="res://Scripts/combat_comp.gd" id="3_nytcm"]
 [ext_resource type="Texture2D" uid="uid://c078qol2td413" path="res://Assets/character_sprite_upper.png" id="5_2mse5"]
 [ext_resource type="Texture2D" uid="uid://mr4xtc8dpw2g" path="res://Assets/character_sprite.png" id="5_ejsiy"]
+[ext_resource type="Texture2D" uid="uid://p53vh5m0f0j0" path="res://Assets/character_sprite_upper_shooting.png" id="6_2mse5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2mse5"]
 size = Vector2(37, 24)
@@ -123,6 +124,64 @@ animations = [{
 "speed": 20.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hgna0"]
+atlas = ExtResource("6_2mse5")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s7tkn"]
+atlas = ExtResource("6_2mse5")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nw3qc"]
+atlas = ExtResource("6_2mse5")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtvxd"]
+atlas = ExtResource("6_2mse5")
+region = Rect2(0, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1g2gg"]
+atlas = ExtResource("6_2mse5")
+region = Rect2(1000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4kq8q"]
+atlas = ExtResource("6_2mse5")
+region = Rect2(2000, 1000, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jouwx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_2mse5")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hgna0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s7tkn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nw3qc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtvxd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1g2gg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4kq8q")
+}],
+"loop": 0,
+"name": &"shooting",
+"speed": 50.0
+}]
+
 [node name="Character" type="CharacterBody2D" unique_id=333459321 groups=["character"]]
 script = ExtResource("1_ushfy")
 
@@ -154,10 +213,13 @@ sprite_frames = SubResource("SpriteFrames_hgna0")
 animation = &"walk"
 offset = Vector2(0, -128.81)
 
-[node name="Upper" type="Sprite2D" parent="Sprites" unique_id=190929163]
+[node name="Upper" type="AnimatedSprite2D" parent="Sprites" unique_id=29556809]
 position = Vector2(0, -55.99998)
 scale = Vector2(0.99999994, 0.99999994)
-texture = ExtResource("5_2mse5")
+sprite_frames = SubResource("SpriteFrames_jouwx")
+animation = &"shooting"
+autoplay = "idle"
+frame_progress = 0.59983754
 offset = Vector2(0, -70)
 
 [node name="Muzzle" type="Marker2D" parent="Sprites/Upper" unique_id=1010250105]
