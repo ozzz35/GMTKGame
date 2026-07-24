@@ -37,6 +37,7 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 	if pump:
 		return
 	
+	pump = true
 	bullets -= 1
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 	upper_body.play("shooting")
@@ -44,7 +45,7 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 	shot.emit()
 	
 	var base_direction: Vector2 = (get_global_mouse_position() - global_position).normalized()
-	var spread_rad: float = deg_to_rad(spread_angle_deg) / 2.0
+	var spread_rad: float = deg_to_rad(spread_angle_deg) / 3.0
 	
 	for i in range(pellet_count):
 		var bullet = bullet_scene.instantiate()
@@ -71,7 +72,7 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 
 
 func pump_gun():
-	pump = true
+	
 	SoundManager.play_sfx("pump")
 	await get_tree().create_timer(0.5).timeout
 	pump = false

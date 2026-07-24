@@ -11,6 +11,7 @@ class_name CharacterBase extends CharacterBody2D
 var crosshair : CompressedTexture2D = preload("res://Assets/simple_crosshair.png")
 
 func _input(event: InputEvent) -> void:
+	get_tree().process_frame
 	if Input.is_action_just_pressed("mouse_left"):
 		combat_comp.shoot_shotgun(7, 40)
 	
