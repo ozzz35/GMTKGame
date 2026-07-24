@@ -63,7 +63,9 @@ script = ExtResource("1_yffda")
 position = Vector2(306, 309)
 
 [node name="Dimension1" type="Node2D" parent="." unique_id=1502965341]
+visible = false
 script = ExtResource("2_d8m2y")
+color = "blue"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Dimension1" unique_id=2136343779]
 visible = false
@@ -85,11 +87,14 @@ tile_set = SubResource("TileSet_s5b24")
 [node name="EnemySpawner" parent="Dimension1/EnemySpawners" unique_id=13039351 instance=ExtResource("4_ra6hl")]
 position = Vector2(2546, 256)
 
+[node name="EnemySpawner2" parent="Dimension1/EnemySpawners" unique_id=812052972 instance=ExtResource("4_ra6hl")]
+position = Vector2(1583, 887)
+
 [node name="EnemyLayer" type="Node2D" parent="Dimension1" unique_id=894160360]
 
 [node name="Dimension2" type="Node2D" parent="." unique_id=615044367]
-visible = false
 script = ExtResource("2_d8m2y")
+color = "red"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Dimension2" unique_id=1085825235]
 visible = false
@@ -109,6 +114,12 @@ tile_set = SubResource("TileSet_s5b24")
 
 [node name="EnemySpawners" type="Node2D" parent="Dimension2" unique_id=423953710]
 
+[node name="EnemySpawner" parent="Dimension2/EnemySpawners" unique_id=1024725002 instance=ExtResource("4_ra6hl")]
+position = Vector2(1559, 480)
+
+[node name="EnemySpawner2" parent="Dimension2/EnemySpawners" unique_id=30703027 instance=ExtResource("4_ra6hl")]
+position = Vector2(596, 1050)
+
 [node name="EnemyLayer" type="Node2D" parent="Dimension2" unique_id=94175203]
 
 [node name="LevelFinishArea" type="Area2D" parent="." unique_id=307148367]
@@ -121,5 +132,5 @@ shape = SubResource("RectangleShape2D_yffda")
 [node name="EntityLayer" type="Node2D" parent="." unique_id=1863661763]
 
 [node name="SwitchTimer" type="Timer" parent="." unique_id=738163340]
-wait_time = 30.0
+wait_time = 7.0
 autostart = true

@@ -76,7 +76,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2mse5")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -120,7 +120,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_et0tf")
 }],
-"loop": 1,
+"loop": true,
 "name": &"walk",
 "speed": 20.0
 }]
@@ -191,7 +191,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_2mse5")
 }],
-"loop": 1,
+"loop": true,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -246,7 +246,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4kq8q")
 }],
-"loop": 0,
+"loop": false,
 "name": &"shooting",
 "speed": 50.0
 }]
