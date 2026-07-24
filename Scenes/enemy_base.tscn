@@ -21,7 +21,7 @@ shape = SubResource("RectangleShape2D_x6wkx")
 
 [node name="Area" type="Area2D" parent="." unique_id=1098094028]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area" unique_id=1111155003]
+[node name="CollisionShape" type="CollisionShape2D" parent="Area" unique_id=1111155003]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_bddga")
 

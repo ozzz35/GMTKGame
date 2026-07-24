@@ -16,6 +16,7 @@ var character: CharacterBase
 @onready var nav_timer: Timer = $NavTimer
 @onready var chase_timer: Timer = $ChaseTimer
 @onready var health_bar: TextureProgressBar = $TextureProgressBar
+@onready var collision_shape: CollisionShape2D = $Area/CollisionShape
 
 
 
@@ -75,6 +76,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func take_damage(damage: int):
 	health -= damage
+	
+	animation_player.stop()
 	animation_player.play("damage")
 	damage_shake()
 	
@@ -85,6 +88,7 @@ func take_damage(damage: int):
 	update_health_bar()
 
 func die():
+	collision_shape.set_deferred("disabled", true)
 	animation_player.play("death_animation")
 	await animation_player.animation_finished
 	enemy_died.emit()
@@ -204,7 +208,7 @@ func shoot(dir : Vector2):
 	
 	bullet.global_position = global_position
 	
-	var error = deg_to_rad(10)
+	var error = deg_to_rad(5)
 	dir = dir.rotated(randf_range(-error, error))
 	
 	bullet.rotation = dir.angle()
