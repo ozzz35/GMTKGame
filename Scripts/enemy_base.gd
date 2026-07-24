@@ -49,6 +49,8 @@ var original_position: Vector2
 @onready var upper_body: Sprite2D = $Sprites/Upper
 @onready var sprites: Node2D = $Sprites
 
+var color: String # either "blue" or "red"
+
 
 func _ready() -> void:
 	
@@ -57,6 +59,11 @@ func _ready() -> void:
 	
 	await get_tree().create_timer(0.1).timeout
 	update_health_bar()
+	match color:
+		"blue":
+			sprites.modulate = Color.DODGER_BLUE
+		"red":
+			sprites.modulate = Color.RED
 
 func _physics_process(delta: float) -> void:
 	if not character:

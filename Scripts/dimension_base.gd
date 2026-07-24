@@ -8,6 +8,8 @@ var index: int = 0
 @onready var enemy_layer: Node2D = $EnemyLayer
 @onready var walls: TileMapLayer = $Walls
 
+@export var color: String
+
 func try_spawn_enemies():
 	if enemies_spawned:
 		return
@@ -24,7 +26,14 @@ func setup(num: int):
 	index = num
 	navigation_region.navigation_layers = index
 	for enemy in enemy_layer.get_children():
-			enemy.navigation_agent.navigation_layers = index
+		enemy.color = color
+		enemy.navigation_agent.navigation_layers = index
+	
+	await get_tree().create_timer(0.05).timeout
+	
+	for enemy in enemy_layer.get_children():
+		if enemy is EnemyBase:
+			enemy.color = color
 
 func dimension_on():
 	walls.enabled = true

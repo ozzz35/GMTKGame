@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://m26rta5efifc" path="res://Scenes/enemy_base.tscn" id="1_jwqgc"]
 [ext_resource type="Texture2D" uid="uid://b71h5gqmwk5y5" path="res://Assets/New Piskel (2).png" id="2_lssre"]
+[ext_resource type="Texture2D" uid="uid://co6aps2r8djbk" path="res://Assets/enemy_upper_body.png" id="2_wlnc2"]
 [ext_resource type="Texture2D" uid="uid://iodtjml58llq" path="res://Assets/New Piskel (3).png" id="3_wlnc2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwqgc"]
@@ -60,12 +61,17 @@ _data = {
 }
 
 [node name="Enemy1" unique_id=1215662046 instance=ExtResource("1_jwqgc")]
-z_index = 1
 
 [node name="Lower" type="AnimatedSprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1064157121) index="0" unique_id=1557720199]
 sprite_frames = SubResource("SpriteFrames_jwqgc")
 
 [node name="Upper" type="Sprite2D" parent="Sprites" parent_id_path=PackedInt32Array(1064157121) index="1" unique_id=1585270795]
+rotation = 1.5707964
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_wlnc2")
+
+[node name="Sprite" parent="." index="3" unique_id=1002090181]
+visible = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1140009256]
 libraries/ = SubResource("AnimationLibrary_lssre")
