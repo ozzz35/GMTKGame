@@ -3,10 +3,11 @@ extends Node2D
 @onready var base : CharacterBase = get_parent()
 @onready var muzzle: Marker2D = $"../Sprites/Upper/Muzzle"
 @onready var upper_body: AnimatedSprite2D = $"../Sprites/Upper"
+@onready var shell_thingy: Marker2D = $"../Sprites/Upper/Shell_thingy"
+@onready var flying_shell_marker: Marker2D = $"../Sprites/Upper/flying_shell_marker"
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 @onready var shell = preload("res://Scenes/shell.tscn")
-
 
 var dead : bool = false
 var health : int
@@ -74,10 +75,9 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 
 
 func pump_gun():
-	
 	SoundManager.play_sfx("pump")
-	dump_shell()
 	await get_tree().create_timer(0.5).timeout
+	dump_shell()
 	pump = false
 
 func reload():
@@ -95,8 +95,12 @@ func reload():
 func dump_shell():
 	var new_shell = shell.instantiate()
 	get_tree().current_scene.add_child(new_shell)
-	new_shell.global_position = muzzle.global_position
-	new_shell.angular_velocity = randf_range(20.0, 35.0)
+	var direction = (flying_shell_marker.global_position - shell_thingy.global_position).normalized()
+	new_shell.global_position = shell_thingy.global_position
+	new_shell.angular_velocity = randf_range(200.0, 300.0)
+	new_shell.linear_velocity = direction * randf_range(10.0, 100.0)
+	var eject_speed = 500.0 
+	new_shell.linear_velocity = direction * eject_speed
 	
 
 ## -- Damage/Death System -- ##

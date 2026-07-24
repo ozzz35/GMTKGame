@@ -7,7 +7,7 @@ extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	visible = true
-	lifetime.wait_time = randf_range(10.0, 30.0)
+	lifetime.wait_time = randf_range(2.0, 7.0)
 	timer.wait_time = randf_range(0.0, 1.0)
 	timer.start()
 	lifetime.start()

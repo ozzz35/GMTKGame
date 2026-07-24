@@ -225,3 +225,9 @@ offset = Vector2(0, -70)
 
 [node name="Muzzle" type="Marker2D" parent="Sprites/Upper" unique_id=1010250105]
 position = Vector2(20.000002, -474.00006)
+
+[node name="Shell_thingy" type="Marker2D" parent="Sprites/Upper" unique_id=1916457521]
+position = Vector2(37.53, -216.445)
+
+[node name="flying_shell_marker" type="Marker2D" parent="Sprites/Upper" unique_id=1338762688]
+position = Vector2(175.015, -216.445)

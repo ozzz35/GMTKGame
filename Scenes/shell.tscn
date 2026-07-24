@@ -73,6 +73,7 @@ _data = {
 visible = false
 mass = 0.001
 gravity_scale = 0.0
+linear_damp = 3.0
 angular_damp = 5.0
 script = ExtResource("1_j4ghq")
 
