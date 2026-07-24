@@ -41,12 +41,11 @@ func take_hit(damage : int, from_pos : Vector2):
 	if base.movement_comp.invincible:
 		return
 	
-	if base.movement_comp.invincible:
-		return
-	
+	health -= damage
 	took_damage.emit(damage, from_pos)
 	health_changed.emit(health)
-	health -= damage
+	
+	print(health)
 	EventBus.health_changed.emit(health)
 	
 	if health <= 0:

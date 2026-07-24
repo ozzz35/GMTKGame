@@ -74,7 +74,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func take_damage(damage: int):
 	health -= damage
-	animation_player.play("damage")
+	animation_player.play("damage") #Pls change the animation I dont know how to do a flashing effect
 	
 	damage_shake()
 	
