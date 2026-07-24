@@ -41,8 +41,8 @@ var strafe_change_interval : float = 1.0
 @export var action_speed: float = 150
 @export var retreat_speed: float = 200
 
-var shake_amount = 3
-var shake_time = 0.12
+var shake_amount = 10
+var shake_time = 0.3
 var shaking = false
 var original_position: Vector2
 

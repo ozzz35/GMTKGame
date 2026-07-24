@@ -6,6 +6,9 @@ extends Node2D
 @onready var shell_thingy: Marker2D = $"../Sprites/Upper/Shell_thingy"
 @onready var flying_shell_marker: Marker2D = $"../Sprites/Upper/flying_shell_marker"
 @onready var camera: Camera2D = $"../Camera"
+@onready var sprites: Node2D = $"../Sprites"
+@onready var animation_player: AnimationPlayer = $"../AnimationPlayer"
+
 
 @onready var bullet_scene = preload("res://Scenes/bullet.tscn")
 @onready var shell = preload("res://Scenes/shell.tscn")
@@ -26,6 +29,10 @@ signal took_damage(damage: int, from_pos: Vector2)
 signal shot
 signal health_changed(health_val: int)
 
+var shake_amount = 10
+var shake_time = 0.2
+var shaking = false
+var original_position: Vector2
 
 func _ready() -> void:
 	health = max_health
@@ -118,6 +125,8 @@ func take_hit(damage : int, from_pos : Vector2):
 	if base.movement_comp.invincible:
 		return
 	add_damage_label(damage)
+	damage_shake()
+	animation_player.play("damage_animation")
 	health -= damage
 	took_damage.emit(damage, from_pos)
 	health_changed.emit(health)
@@ -142,6 +151,24 @@ func add_damage_label(damage):
 	new_damage_label.add_theme_color_override("font_size", 10)
 	get_tree().current_scene.call_deferred("add_child", new_damage_label)
 
+func damage_shake():
+	if shaking: 
+		return
+	
+	shaking = true
+	original_position = sprites.position
+	
+	var t = get_tree().create_timer(shake_time)
+	
+	while t.time_left > 0:
+		sprites.position = original_position + Vector2(
+			randf_range(-shake_amount, shake_amount),
+			randf_range(-shake_amount, shake_amount)
+		)
+		await get_tree().process_frame
+	
+	sprites.position = original_position
+	shaking = false
 
 ## -- Signals -- ##
 

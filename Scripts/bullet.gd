@@ -45,3 +45,8 @@ func _on_area_entered(area: Area2D) -> void:
 		if area.get_parent().is_in_group("character"):
 			area.get_parent().recieve_hit(damage, global_position)
 			queue_free()
+
+
+func _on_body_entered(body: Node2D) -> void:
+	if body is TileMapLayer:
+		queue_free()
