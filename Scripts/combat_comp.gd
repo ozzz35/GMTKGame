@@ -34,6 +34,7 @@ func shoot_bullet():
 
 
 
+
 ## -- Damage/Death System -- ##
 
 func take_hit(damage : int, from_pos : Vector2):
@@ -45,8 +46,8 @@ func take_hit(damage : int, from_pos : Vector2):
 	
 	took_damage.emit(damage, from_pos)
 	health_changed.emit(health)
-	
 	health -= damage
+	EventBus.health_changed.emit(health)
 	
 	if health <= 0:
 		dead = true
