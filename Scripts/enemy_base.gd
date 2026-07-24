@@ -15,7 +15,8 @@ var character: CharacterBase
 @onready var navigation_agent: NavigationAgent2D = $NavigationAgent
 @onready var nav_timer: Timer = $NavTimer
 @onready var chase_timer: Timer = $ChaseTimer
-@onready var health_text: Label = $HealthText
+@onready var health_bar: TextureProgressBar = $TextureProgressBar
+
 
 
 enum State { CHASE, RETREAT, IDLE, ACTION }
@@ -74,8 +75,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 
 func take_damage(damage: int):
 	health -= damage
-	animation_player.play("damage") #Pls change the animation I dont know how to do a flashing effect
-	
+	animation_player.play("damage")
 	damage_shake()
 	
 	if health <= 0:
@@ -91,9 +91,7 @@ func die():
 	queue_free()
 
 func update_health_bar():
-	#health_bar.value = health
-	health_text.text = str(health)
-
+	health_bar.value = health
 
 ## -- AI -- ##
 

@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://btcjamx8ut1eo"]
 
 [ext_resource type="PackedScene" uid="uid://m26rta5efifc" path="res://Scenes/enemy_base.tscn" id="1_jwqgc"]
+[ext_resource type="Texture2D" uid="uid://b71h5gqmwk5y5" path="res://Assets/New Piskel (2).png" id="2_lssre"]
+[ext_resource type="Texture2D" uid="uid://iodtjml58llq" path="res://Assets/New Piskel (3).png" id="3_wlnc2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jwqgc"]
 
@@ -9,41 +11,30 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_0a874"]
 resource_name = "damage"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:scale")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
+"times": PackedFloat32Array(0, 0.25, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1, 1)]
+"values": [Color(1, 1, 1, 1), Color(2.454227, 2.454227, 2.454227, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_lssre"]
@@ -51,14 +42,14 @@ resource_name = "death_animation"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite:rotation")
+tracks/0/path = NodePath(".:modulate")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [0.0, 3.1415927, 6.2831855]
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_lssre"]
@@ -77,3 +68,16 @@ sprite_frames = SubResource("SpriteFrames_jwqgc")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5" unique_id=1140009256]
 libraries/ = SubResource("AnimationLibrary_lssre")
+
+[node name="HealthText" parent="." index="8" unique_id=1176240340]
+visible = false
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="10" unique_id=1967363654]
+offset_left = -62.0
+offset_top = -98.0
+offset_right = 64.0
+offset_bottom = -73.0
+texture_under = ExtResource("2_lssre")
+texture_progress = ExtResource("3_wlnc2")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
