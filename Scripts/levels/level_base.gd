@@ -40,8 +40,8 @@ func _ready() -> void:
 
 func switch_dimensions():
 	EventBus.switched_dimensions.emit()
-	
 	await get_tree().create_timer(0.06).timeout
+	
 	
 	current_dimension.dimension_off()
 	

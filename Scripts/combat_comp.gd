@@ -76,6 +76,7 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 
 func pump_gun():
 	SoundManager.play_sfx("pump")
+	await get_tree().create_timer(0.2).timeout
 	upper_body.play("pump")
 	await get_tree().create_timer(0.5).timeout
 	dump_shell()
@@ -89,6 +90,7 @@ func reload():
 	is_reloading = true
 	EventBus.bullets_changed.emit(bullets, is_reloading)
 	SoundManager.play_sfx("reload")
+	upper_body.play("reload")
 	await get_tree().create_timer(reload_time).timeout
 	bullets = max_bullets
 	is_reloading = false

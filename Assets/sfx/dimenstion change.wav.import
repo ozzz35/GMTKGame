@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://wqlmqh7eflf6"
+path="res://.godot/imported/dimenstion change.wav-b3919b797d85013969d0453f95607d4a.sample"
+
+[deps]
+
+source_file="res://Assets/sfx/dimenstion change.wav"
+dest_files=["res://.godot/imported/dimenstion change.wav-b3919b797d85013969d0453f95607d4a.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
