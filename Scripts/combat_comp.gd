@@ -76,8 +76,10 @@ func shoot_shotgun(pellet_count: int, spread_angle_deg: float):
 
 func pump_gun():
 	SoundManager.play_sfx("pump")
+	upper_body.play("pump")
 	await get_tree().create_timer(0.5).timeout
 	dump_shell()
+	upper_body.play("idle")
 	pump = false
 
 func reload():
@@ -99,7 +101,7 @@ func dump_shell():
 	new_shell.global_position = shell_thingy.global_position
 	new_shell.angular_velocity = randf_range(200.0, 300.0)
 	new_shell.linear_velocity = direction * randf_range(10.0, 100.0)
-	var eject_speed = 500.0 
+	var eject_speed = 500.0 + randf_range(-100.0, 200.0)
 	new_shell.linear_velocity = direction * eject_speed
 	
 
