@@ -28,19 +28,13 @@ func _ready() -> void:
 	spawn_player()
 	
 	for i in range(dimension_count): #set up current dimension
+		dimensions[i].setup(i + 1)
+		
 		if i == current_dimension_id:
-			dimensions[i].visible = true
-			dimensions[i].process_mode = Node.PROCESS_MODE_INHERIT
-			for tilemap in dimensions[i].get_children():
-				if tilemap is TileMapLayer:
-					tilemap.enabled = true
-			
+			dimensions[i].dimension_on()
+			dimensions[i].try_spawn_enemies()
 		else:
-			dimensions[i].visible = false
-			dimensions[i].process_mode = Node.PROCESS_MODE_DISABLED
-			for tilemap in dimensions[i].get_children():
-				if tilemap is TileMapLayer:
-					tilemap.enabled = false
+			dimensions[i].dimension_off()
 	
 	current_dimension = dimensions[current_dimension_id]
 
@@ -49,11 +43,7 @@ func switch_dimensions():
 	
 	await get_tree().create_timer(0.06).timeout
 	
-	current_dimension.visible = false
-	current_dimension.process_mode = Node.PROCESS_MODE_DISABLED #to avoid any collisions with other dimensions
-	for tilemap in current_dimension.get_children():
-		if tilemap is TileMapLayer:
-			tilemap.enabled = false
+	current_dimension.dimension_off()
 	
 	current_dimension_id = wrapi(current_dimension_id + 1, 0, dimension_count)
 	current_dimension = dimensions[current_dimension_id]
@@ -61,10 +51,9 @@ func switch_dimensions():
 		if tilemap is TileMapLayer:
 			tilemap.enabled = true
 	
-	#current_dimension.try_spawn_enemies()
+	current_dimension.try_spawn_enemies()
 	
-	current_dimension.visible = true
-	current_dimension.process_mode = Node.PROCESS_MODE_INHERIT
+	current_dimension.dimension_on()
 
 
 func _process(delta: float) -> void:

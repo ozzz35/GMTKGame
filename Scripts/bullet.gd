@@ -38,13 +38,10 @@ func _on_area_entered(area: Area2D) -> void:
 	
 	if player:
 		if area.get_parent().is_in_group("enemy"):
-			area.get_parent().recieve_hit(damage, global_position)
+			area.get_parent().take_damage(damage)
 			
 			queue_free()
 	else:
 		if area.get_parent().is_in_group("character"):
-			$AnimationPlayer.play("bullet")
 			area.get_parent().recieve_hit(damage, global_position)
-			await $AnimationPlayer.animation_finished
-			
 			queue_free()

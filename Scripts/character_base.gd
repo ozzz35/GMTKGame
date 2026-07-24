@@ -41,3 +41,6 @@ func animation():
 	var dir: Vector2 = (upper_body.global_position - get_global_mouse_position()).normalized()
 	upper_body.rotation = dir.angle() + 80
 	lower_body.rotation = dir.angle() + 80
+
+func recieve_hit(damage, from_pos):
+	combat_comp.take_hit(damage, from_pos)

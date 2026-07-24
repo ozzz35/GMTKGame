@@ -38,7 +38,7 @@ func shoot_bullet():
 ## -- Damage/Death System -- ##
 
 func take_hit(damage : int, from_pos : Vector2):
-	if not base.can_take_damage():
+	if base.movement_comp.invincible:
 		return
 	
 	if base.movement_comp.invincible:
