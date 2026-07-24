@@ -18,6 +18,7 @@ func health_changed(health):
 	health_bar.value = health
 
 func bullets_changed(bullets, is_reloading):
+	print("Schuss bei Frame:", Engine.get_process_frames())
 	if is_reloading:
 		bullets_left.text = "Reloading"
 	else:

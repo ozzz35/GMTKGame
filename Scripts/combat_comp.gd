@@ -28,7 +28,7 @@ func shoot_bullet():
 	if is_reloading:
 		return
 		
-	if bullets <= 0:
+	if bullets < 0:
 		reload()
 		return
 	
@@ -51,9 +51,11 @@ func reload():
 	
 	is_reloading = true
 	EventBus.bullets_changed.emit(bullets, is_reloading)
+	SoundManager.play_sfx("reload")
 	await get_tree().create_timer(reload_time).timeout
-	bullets += max_bullets
+	bullets = max_bullets
 	is_reloading = false
+	EventBus.bullets_changed.emit(bullets, is_reloading)
 
 
 ## -- Damage/Death System -- ##
