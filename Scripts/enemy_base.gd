@@ -72,7 +72,7 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	if not character:
 		return
-	
+	animation()
 	dist_to_player = global_position.distance_to(character.global_position)
 	rotation = (character.global_position - global_position).angle()
 	
@@ -290,3 +290,10 @@ func damage_shake():
 	
 	sprites.position = original_position
 	shaking = false
+
+
+func animation():
+	if velocity == Vector2.ZERO:
+		lower_body.play("idle")
+	else:
+		lower_body.play("walk")
