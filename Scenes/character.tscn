@@ -382,6 +382,7 @@ script = ExtResource("2_owm7s")
 script = ExtResource("3_nytcm")
 
 [node name="Camera" type="Camera2D" parent="." unique_id=1476429626 groups=["character"]]
+zoom = Vector2(0.8, 0.8)
 process_callback = 0
 position_smoothing_enabled = true
 script = ExtResource("4_wbia7")
