@@ -159,23 +159,23 @@ offset_bottom = -391.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
-text = "WASD to move 
-Space to Dash
-Left click to shoot
-Right click to aim
+text = "- WASD to move 
+- Space to Dash
+- Left click to shoot
+- Right click to aim
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnemyTutorial" type="Label" parent="." unique_id=782324021]
 offset_left = 2443.0
-offset_top = -355.0
+offset_top = -318.0
 offset_right = 2890.0
-offset_bottom = -34.0
+offset_bottom = 3.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
-text = "Theres an enemy behind that wall. Wait for a dimention switch!
+text = "There's an enemy behind that wall. Wait for the dimension switch!
 Then kill him!
 "
 horizontal_alignment = 1
@@ -184,13 +184,13 @@ autowrap_mode = 3
 
 [node name="DimentionTutorial" type="Label" parent="." unique_id=1640259224]
 offset_left = 302.0
-offset_top = -396.0
+offset_top = -361.0
 offset_right = 2265.0
-offset_bottom = -237.0
+offset_bottom = -202.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
-text = "There are 2 dimention in this Game, enemys can only exist in one of them!"
+text = "There are 2 dimensions in this game, Blue and Red enemies can only exist in one of them!"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -202,7 +202,7 @@ offset_bottom = 1971.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
-text = "In this room, there are enemys in both dimentions!
+text = "In this room, there are enemies in both dimensions!
 Clear the room!"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -217,7 +217,7 @@ theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
 text = "↑
-Now exit"
+Exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
