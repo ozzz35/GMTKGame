@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://dvc04m53d6ti4"]
 
 [ext_resource type="Texture2D" uid="uid://kom4wfe2var8" path="res://Assets/shell.png" id="1_g08il"]
-[ext_resource type="Script" uid="uid://c7buq64qf4sjq" path="res://Scenes/shell.gd" id="1_j4ghq"]
+[ext_resource type="Script" uid="uid://c7buq64qf4sjq" path="res://Scripts/shell.gd" id="1_j4ghq"]
 
 [sub_resource type="Animation" id="Animation_2hyhe"]
 length = 0.001
@@ -69,8 +69,11 @@ _data = {
 &"shell_remove": SubResource("Animation_vvlew")
 }
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_jouwx"]
+radius = 2.5
+height = 14.999999
+
 [node name="Shell" type="RigidBody2D" unique_id=1609713561]
-visible = false
 mass = 0.001
 gravity_scale = 0.0
 linear_damp = 3.0
@@ -78,6 +81,7 @@ angular_damp = 5.0
 script = ExtResource("1_j4ghq")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=29296485]
+position = Vector2(-0.375, 0)
 scale = Vector2(0.02, 0.02)
 texture = ExtResource("1_g08il")
 
@@ -88,6 +92,10 @@ libraries/ = SubResource("AnimationLibrary_2hyhe")
 one_shot = true
 
 [node name="Lifetime" type="Timer" parent="." unique_id=488333902]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=174403278]
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CapsuleShape2D_jouwx")
 
 [connection signal="timeout" from="FallingTimer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="Lifetime" to="." method="_on_lifetime_timeout"]

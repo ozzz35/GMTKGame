@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cf7s48wfxta66" path="res://Scripts/character_base.gd" id="1_ushfy"]
 [ext_resource type="Script" uid="uid://ddpql1t4v3qdh" path="res://Scripts/movement_comp.gd" id="2_owm7s"]
 [ext_resource type="Script" uid="uid://l8dybsj44cmt" path="res://Scripts/combat_comp.gd" id="3_nytcm"]
-[ext_resource type="Script" uid="uid://4042ffa1ckrd" path="res://Scenes/camera.gd" id="4_wbia7"]
+[ext_resource type="Script" uid="uid://4042ffa1ckrd" path="res://Scripts/camera.gd" id="4_wbia7"]
 [ext_resource type="Texture2D" uid="uid://c078qol2td413" path="res://Assets/character_sprite_upper.png" id="5_2mse5"]
 [ext_resource type="Texture2D" uid="uid://mr4xtc8dpw2g" path="res://Assets/character_sprite.png" id="5_ejsiy"]
 [ext_resource type="Texture2D" uid="uid://p53vh5m0f0j0" path="res://Assets/character_sprite_upper_shooting.png" id="6_2mse5"]
@@ -75,7 +75,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_2mse5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -119,7 +119,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_et0tf")
 }],
-"loop": true,
+"loop": 1,
 "name": &"walk",
 "speed": 20.0
 }]
@@ -234,7 +234,7 @@ animations = [{
 "duration": 1.0,
 "texture": ExtResource("5_2mse5")
 }],
-"loop": true,
+"loop": 1,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -266,7 +266,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l51qt")
 }],
-"loop": false,
+"loop": 0,
 "name": &"pump",
 "speed": 30.0
 }, {
@@ -304,7 +304,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_hbbpx")
 }],
-"loop": false,
+"loop": 0,
 "name": &"reload",
 "speed": 5.0
 }, {
@@ -327,7 +327,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_4kq8q")
 }],
-"loop": false,
+"loop": 0,
 "name": &"shooting",
 "speed": 50.0
 }]
