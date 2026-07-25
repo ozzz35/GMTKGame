@@ -148,7 +148,7 @@ shape = SubResource("RectangleShape2D_yffda")
 [node name="EntityLayer" type="Node2D" parent="." unique_id=1863661763]
 
 [node name="SwitchTimer" type="Timer" parent="." unique_id=738163340]
-wait_time = 7.0
+wait_time = 4.0
 autostart = true
 
 [node name="MovmentTutorial" type="Label" parent="." unique_id=1966667181]
