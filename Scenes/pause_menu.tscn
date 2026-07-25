@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://b0b4re00jlyky"]
+
+[ext_resource type="PackedScene" uid="uid://bepwkvti4xw7f" path="res://Scenes/audio_options.tscn" id="1_1och7"]
+[ext_resource type="Script" uid="uid://b04fxfgeqgor2" path="res://Scripts/pause_menu.gd" id="1_bpi0q"]
+[ext_resource type="Texture2D" uid="uid://dkq6avr5ujopt" path="res://Assets/UI/PNG/Double/Panel/panel-009.png" id="2_bpi0q"]
+[ext_resource type="FontFile" uid="uid://bfjftdmbh2l22" path="res://Assets/fonts/MotionControl-Bold.otf" id="3_vmyb1"]
+
+[node name="PauseMenu" type="Control" unique_id=728683184]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bpi0q")
+
+[node name="AudioOptions" parent="." unique_id=1065075208 instance=ExtResource("1_1och7")]
+layout_mode = 0
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -185.0
+offset_top = -181.0
+offset_right = -185.0
+offset_bottom = -181.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Panel" type="NinePatchRect" parent="." unique_id=529500121]
+self_modulate = Color(0.35686275, 0.35686275, 0.35686275, 1)
+layout_mode = 0
+offset_left = -185.0
+offset_top = 101.0
+offset_right = 186.0
+offset_bottom = 233.0
+texture = ExtResource("2_bpi0q")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="VBoxContainer" type="HBoxContainer" parent="." unique_id=1737705433]
+layout_mode = 0
+offset_left = -156.0
+offset_top = 126.0
+offset_right = 148.0
+offset_bottom = 199.0
+theme_override_constants/separation = 15
+
+[node name="ResumeButton" type="Button" parent="VBoxContainer" unique_id=1978648734]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_vmyb1")
+theme_override_font_sizes/font_size = 40
+text = "Resume"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=902890254]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/outline_size = 7
+theme_override_fonts/font = ExtResource("3_vmyb1")
+theme_override_font_sizes/font_size = 40
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

@@ -22,7 +22,7 @@ const SOUNDS: Dictionary = {
 	
 }
 
-var current_music: String = "game"
+var current_music: String = "intense"
 var current_music_player: AudioStreamPlayer
 
 ## -- MUSIC -- ##
@@ -34,6 +34,9 @@ func _ready() -> void:
 	music2.playing = true
 
 func switch_music(music: String, duration: float):
+	music1.playing = true
+	music2.playing = true
+	
 	if current_music == music:
 		return
 	

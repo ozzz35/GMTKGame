@@ -1,0 +1,172 @@
+[gd_scene format=3 uid="uid://n2m4av5y6sbv"]
+
+[ext_resource type="Script" uid="uid://djrovhg4cb6bt" path="res://Scripts/main_menu.gd" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://bfjftdmbh2l22" path="res://Assets/fonts/MotionControl-Bold.otf" id="2_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://dpv6uwiu2jx46" path="res://Assets/UI/PNG/Double/Border/panel-border-005.png" id="3_n45e2"]
+[ext_resource type="PackedScene" uid="uid://bepwkvti4xw7f" path="res://Scenes/audio_options.tscn" id="4_ce3w2"]
+
+[node name="MainMenu" type="Control" unique_id=1703749146]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1ehe0")
+
+[node name="Label" type="Label" parent="." unique_id=1759958776]
+layout_mode = 0
+offset_left = 105.0
+offset_top = 78.0
+offset_right = 1141.0
+offset_bottom = 329.0
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 250
+text = "[GAME TITLE]"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1825428970]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -843.0
+offset_top = -84.0
+offset_right = -386.0
+offset_bottom = 323.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
+
+[node name="PlayButton" type="Button" parent="VBoxContainer" unique_id=1438718494]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 100
+text = "Play"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/PlayButton" unique_id=1673624856]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.011764706, 0.24313726, 1, 0.50980395)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/PlayButton" unique_id=1993366874]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -205.62637
+offset_bottom = -44.439575
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.82, 1.82)
+texture = ExtResource("3_n45e2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="OptionsButton" type="Button" parent="VBoxContainer" unique_id=1378067171]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 100
+text = "Options"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/OptionsButton" unique_id=1957516109]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.7122689, 0.00038514228, 0.71226376, 0.50980395)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/OptionsButton" unique_id=1146364889]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -205.62637
+offset_bottom = -44.439575
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.82, 1.82)
+texture = ExtResource("3_n45e2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="QuitButton" type="Button" parent="VBoxContainer" unique_id=399182611]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_fonts/font = ExtResource("2_ce3w2")
+theme_override_font_sizes/font_size = 100
+text = "Quit"
+flat = true
+
+[node name="ColorRect" type="ColorRect" parent="VBoxContainer/QuitButton" unique_id=100691266]
+show_behind_parent = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 8.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0.9851133, 7.508397e-06, 1.347661e-06, 0.50980395)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="VBoxContainer/QuitButton" unique_id=1965291250]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -205.62637
+offset_bottom = -44.439545
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.82, 1.82)
+texture = ExtResource("3_n45e2")
+patch_margin_left = 24
+patch_margin_top = 24
+patch_margin_right = 24
+patch_margin_bottom = 24
+
+[node name="AudioOptions" parent="." unique_id=1065075208 instance=ExtResource("4_ce3w2")]
+visible = false
+layout_mode = 1
+offset_left = 1022.0
+offset_top = 380.0
+offset_right = 1022.44
+offset_bottom = 380.24
+scale = Vector2(2.17, 2.17)
+
+[node name="SceneTransition" type="ColorRect" parent="." unique_id=2071840013]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="pressed" from="VBoxContainer/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]

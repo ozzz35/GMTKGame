@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://bepwkvti4xw7f"]
+
+[ext_resource type="Script" uid="uid://b2ssg7yyd2ey6" path="res://audio_options.gd" id="1_a8kiv"]
+[ext_resource type="Texture2D" uid="uid://dkq6avr5ujopt" path="res://Assets/UI/PNG/Double/Panel/panel-009.png" id="2_7qghd"]
+[ext_resource type="FontFile" uid="uid://bfjftdmbh2l22" path="res://Assets/fonts/MotionControl-Bold.otf" id="2_he56t"]
+[ext_resource type="Texture2D" uid="uid://ceae6s43ok7os" path="res://Assets/UI/PNG/Double/Divider/divider-002.png" id="4_7qghd"]
+
+[node name="AudioOptions" type="Control" unique_id=1065075208]
+layout_mode = 3
+anchor_right = 0.193
+anchor_bottom = 0.272
+offset_right = 0.44000244
+offset_bottom = 0.23999023
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_a8kiv")
+
+[node name="Panel" type="NinePatchRect" parent="." unique_id=1519666362]
+self_modulate = Color(0.35686275, 0.35686275, 0.35686275, 1)
+layout_mode = 1
+offset_right = 371.0
+offset_bottom = 294.0
+texture = ExtResource("2_7qghd")
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+
+[node name="Label" type="Label" parent="Panel" unique_id=1245906500]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -116.0
+offset_top = 12.0
+offset_right = 116.0
+offset_bottom = 61.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_he56t")
+theme_override_font_sizes/font_size = 48
+text = "Audio Options"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel" unique_id=991842929]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 94.0
+offset_right = -52.0
+offset_bottom = -23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="MasterContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1512026309]
+layout_mode = 2
+theme_override_constants/separation = 19
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MasterContainer" unique_id=888048775]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_he56t")
+theme_override_font_sizes/font_size = 25
+text = "Master"
+
+[node name="MasterSlider" type="HSlider" parent="Panel/VBoxContainer/MasterContainer" unique_id=1331685254]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="TextureRect" type="TextureRect" parent="Panel/VBoxContainer" unique_id=21583012]
+self_modulate = Color(1.4758431, 1.4758431, 1.4758431, 0.5647059)
+layout_mode = 2
+texture = ExtResource("4_7qghd")
+flip_h = true
+
+[node name="MusicContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=1949049824]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/MusicContainer" unique_id=2011887292]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_he56t")
+theme_override_font_sizes/font_size = 25
+text = "Music"
+
+[node name="MusicSlider" type="HSlider" parent="Panel/VBoxContainer/MusicContainer" unique_id=1718914158]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[node name="TextureRect2" type="TextureRect" parent="Panel/VBoxContainer" unique_id=1072067921]
+self_modulate = Color(1.4758431, 1.4758431, 1.4758431, 0.5647059)
+layout_mode = 2
+texture = ExtResource("4_7qghd")
+flip_h = true
+
+[node name="SFXContainer" type="HBoxContainer" parent="Panel/VBoxContainer" unique_id=794683099]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/SFXContainer" unique_id=991807306]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_he56t")
+theme_override_font_sizes/font_size = 25
+text = "SFX"
+
+[node name="SFXSlider" type="HSlider" parent="Panel/VBoxContainer/SFXContainer" unique_id=1324553801]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+max_value = 1.0
+step = 0.05
+value = 1.0
+
+[connection signal="value_changed" from="Panel/VBoxContainer/MasterContainer/MasterSlider" to="." method="_on_master_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/MusicContainer/MusicSlider" to="." method="_on_music_slider_value_changed"]
+[connection signal="value_changed" from="Panel/VBoxContainer/SFXContainer/SFXSlider" to="." method="_on_sfx_slider_value_changed"]

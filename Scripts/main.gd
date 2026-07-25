@@ -3,9 +3,12 @@ extends Node2D
 @export var level_scenes: Array[PackedScene] = []
 
 @onready var levels_container: Node2D = $Levels
+@onready var pause_menu: Control = $UI/PauseMenu
 
 var current_level_index: int = 0
 var current_level_node: LevelBase = null
+
+var pause_menu_on: bool = false
 
 func _ready() -> void:
 	EventBus.level_load.connect(next_level)
@@ -27,4 +30,21 @@ func load_level(index: int) -> void:
 	current_level_index = index
 
 func next_level() -> void:
-	load_level(current_level_index + 1)
+	load_level(current_level_index + 2)
+
+func _unhandled_input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("esc"):
+		pause_menu_on_off()
+
+func pause_menu_on_off():
+	if pause_menu_on:
+		pause_menu.hide()
+		get_tree().paused = false
+	else:
+		pause_menu.show()
+		get_tree().paused = true
+	
+	pause_menu_on = !pause_menu_on
+
+func quit_to_main_menu():
+	pass

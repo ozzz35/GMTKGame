@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://ybi2tix4dkjw" path="res://Scenes/scene_transition.tscn" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://b71h5gqmwk5y5" path="res://Assets/New Piskel (2).png" id="6_6bp64"]
 [ext_resource type="Texture2D" uid="uid://iodtjml58llq" path="res://Assets/New Piskel (3).png" id="7_344ge"]
+[ext_resource type="PackedScene" uid="uid://b0b4re00jlyky" path="res://Scenes/pause_menu.tscn" id="10_hptm8"]
 
 [node name="Main" type="Node2D" unique_id=727275460]
 script = ExtResource("1_jjvhh")
@@ -17,6 +18,7 @@ level_scenes = Array[PackedScene]([ExtResource("1_bo1nx"), ExtResource("3_ynf5e"
 [node name="Levels" type="Node2D" parent="." unique_id=1277246378]
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=72857900]
+process_mode = 3
 script = ExtResource("3_8gbba")
 
 [node name="BulletsLeft" type="Label" parent="UI" unique_id=1736734782]
@@ -56,3 +58,14 @@ text = "[time_left]"
 
 [node name="SceneTransition" parent="UI" unique_id=764953799 instance=ExtResource("5_kry3j")]
 visible = false
+
+[node name="PauseMenu" parent="UI" unique_id=728683184 instance=ExtResource("10_hptm8")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+scale = Vector2(1.915, 1.915)
+size_flags_horizontal = 4
+size_flags_vertical = 4
