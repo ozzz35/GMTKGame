@@ -8,7 +8,7 @@ class_name CharacterBase extends CharacterBody2D
 @onready var lower_body: AnimatedSprite2D = $Sprites/Lower
 @onready var upper_body: AnimatedSprite2D = $Sprites/Upper
 
-var crosshair : CompressedTexture2D = preload("res://Assets/simple_crosshair.png")
+var crosshair : CompressedTexture2D = preload("res://Assets/better_crosshair.png")
 
 func _input(event: InputEvent) -> void:
 	get_tree().process_frame
