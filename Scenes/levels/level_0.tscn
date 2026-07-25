@@ -148,17 +148,17 @@ theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
 text = "WASD to move 
 Space to Dash
-Right click to shoot
-Left click to aim
+Left click to shoot
+Right click to aim
 "
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="EnemyTutorial" type="Label" parent="." unique_id=782324021]
-offset_left = 2442.0
-offset_top = -410.0
-offset_right = 2825.0
-offset_bottom = -143.0
+offset_left = 2443.0
+offset_top = -355.0
+offset_right = 2890.0
+offset_bottom = -34.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
@@ -196,14 +196,15 @@ vertical_alignment = 1
 autowrap_mode = 3
 
 [node name="EnemyTutorial2" type="Label" parent="." unique_id=583651824]
-offset_left = -1171.0
-offset_top = 2575.0
-offset_right = -929.0
-offset_bottom = 2680.0
+offset_left = -1399.0
+offset_top = 2604.0
+offset_right = -1157.0
+offset_bottom = 2725.0
 theme_override_constants/outline_size = 10
 theme_override_fonts/font = ExtResource("7_qikqb")
 theme_override_font_sizes/font_size = 50
-text = "Now exit"
+text = "↑
+Now exit"
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3

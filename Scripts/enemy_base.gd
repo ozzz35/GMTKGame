@@ -34,6 +34,8 @@ var strafe_direction : Vector2 = Vector2.ZERO
 var strafe_timer : float = 0.0
 var strafe_change_interval : float = 1.0
 
+var dimention_change : bool = false
+
 @export var bullet_scene: PackedScene
 @onready var damage_label = preload("uid://c517qyr5kd11h")
 
@@ -57,6 +59,8 @@ var last_damage_label: Label
 var last_damage: int
 
 func _ready() -> void:
+	
+	EventBus.switched_dimensions.connect(_on_dimentions_changed)
 	
 	chase_timer.wait_time = chase_timeout
 	change_state(State.IDLE)
@@ -223,9 +227,6 @@ func state_idle(delta):
 	if await can_see_player():
 		change_state(State.CHASE)
 
-
-
-
 ## -- Utility Methods -- ##
 
 func pathfind(delta):
@@ -241,22 +242,29 @@ func go_to(pos: Vector2):
 
 
 func shoot(dir : Vector2):
-	var bullet : Area2D = bullet_scene.instantiate()
+	if !dimention_change:
+		var bullet : Area2D = bullet_scene.instantiate()
+		
+		bullet.global_position = global_position
+		
+		var error = deg_to_rad(5)
+		dir = dir.rotated(randf_range(-error, error))
+		
+		bullet.rotation = dir.angle()
+		bullet.direction = -dir.normalized()
+		bullet.player = false
+		
+		var bullets_root = get_parent()
+		if bullets_root:
+			bullets_root.add_child(bullet)
+		else:
+			print("Bullets Root not found")
+
+func _on_dimentions_changed():
+	dimention_change = true
+	await get_tree().create_timer(0.5).timeout
+	dimention_change = false
 	
-	bullet.global_position = global_position
-	
-	var error = deg_to_rad(5)
-	dir = dir.rotated(randf_range(-error, error))
-	
-	bullet.rotation = dir.angle()
-	bullet.direction = -dir.normalized()
-	bullet.player = false
-	
-	var bullets_root = get_parent()
-	if bullets_root:
-		bullets_root.add_child(bullet)
-	else:
-		print("Bullets Root not found")
 
 func can_see_player() -> bool:
 	if dist_to_player <= detection_range and not has_wall_between(character):
