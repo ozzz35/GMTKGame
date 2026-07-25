@@ -119,6 +119,8 @@ func add_damage_label(damage: int) -> void:
 			old_label.queue_free()
 	
 	var new_damage_label = damage_label.instantiate() as Label
+	new_damage_label.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+	new_damage_label.add_theme_constant_override("outline_size", 10)
 	new_damage_label.text = str(total_damage)
 	new_damage_label.global_position = global_position - Vector2(0, 20)
 	

@@ -149,6 +149,8 @@ func add_damage_label(damage):
 	new_damage_label.global_position = global_position - Vector2(0, 20)
 	new_damage_label.add_theme_color_override("font_color", Color("C92C60"))
 	new_damage_label.add_theme_color_override("font_size", 10)
+	new_damage_label.add_theme_color_override("font_outline_color", Color(0, 0, 0))
+	new_damage_label.add_theme_constant_override("outline_size", 10)
 	get_tree().current_scene.call_deferred("add_child", new_damage_label)
 
 func damage_shake():
