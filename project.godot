@@ -13,6 +13,7 @@ config_version=5
 config/name="GMTKGame"
 run/main_scene="uid://n2m4av5y6sbv"
 config/features=PackedStringArray("4.7", "GL Compatibility")
+run/low_processor_mode_sleep_usec=0
 config/icon="res://icon.svg"
 
 [audio]

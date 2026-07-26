@@ -10,3 +10,6 @@ signal switched_dimensions
 
 signal boss_died
 signal character_died
+
+func _ready() -> void:
+	OS.low_processor_usage_mode = false
