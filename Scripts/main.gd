@@ -30,7 +30,7 @@ func load_level(index: int) -> void:
 	current_level_index = index
 
 func next_level() -> void:
-	load_level(current_level_index + 2)
+	load_level(current_level_index + 1)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("esc"):
