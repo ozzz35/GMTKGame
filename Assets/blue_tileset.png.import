@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7qe661q0prrl"
-path="res://.godot/imported/FadeBlueSideways.png-69945981e0f0d8958b940ee327e05798.ctex"
+uid="uid://l0xjqic71ydr"
+path="res://.godot/imported/blue_tileset.png-2ab8c19f6da378d964fb1d3fcb11eae2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FadeBlueSideways.png"
-dest_files=["res://.godot/imported/FadeBlueSideways.png-69945981e0f0d8958b940ee327e05798.ctex"]
+source_file="res://Assets/blue_tileset.png"
+dest_files=["res://.godot/imported/blue_tileset.png-2ab8c19f6da378d964fb1d3fcb11eae2.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://d4f3d4he3af8q"
-path="res://.godot/imported/red_tileset_fixed.png-6e26df35463ae6c8e01198e95c3be69d.ctex"
+uid="uid://be7ra74xbnlyh"
+path="res://.godot/imported/Fade_red_sideways.png-89d8b0345ce7a57dd37e5b2fa90fb444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/red_tileset_fixed.png"
-dest_files=["res://.godot/imported/red_tileset_fixed.png-6e26df35463ae6c8e01198e95c3be69d.ctex"]
+source_file="res://Assets/Fade_red_sideways.png"
+dest_files=["res://.godot/imported/Fade_red_sideways.png-89d8b0345ce7a57dd37e5b2fa90fb444.ctex"]
 
 [params]
 
