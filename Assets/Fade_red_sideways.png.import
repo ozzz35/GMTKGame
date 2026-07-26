@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7qe661q0prrl"
-path="res://.godot/imported/FadeBlueSideways.png-69945981e0f0d8958b940ee327e05798.ctex"
+uid="uid://be7ra74xbnlyh"
+path="res://.godot/imported/Fade_red_sideways.png-89d8b0345ce7a57dd37e5b2fa90fb444.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/FadeBlueSideways.png"
-dest_files=["res://.godot/imported/FadeBlueSideways.png-69945981e0f0d8958b940ee327e05798.ctex"]
+source_file="res://Assets/Fade_red_sideways.png"
+dest_files=["res://.godot/imported/Fade_red_sideways.png-89d8b0345ce7a57dd37e5b2fa90fb444.ctex"]
 
 [params]
 
