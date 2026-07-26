@@ -26,6 +26,7 @@ func _ready() -> void:
 	else:
 		sprite.modulate = Color.DARK_RED
 
+
 func _physics_process(delta: float) -> void:
 	rotation = direction.angle()
 	

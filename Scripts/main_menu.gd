@@ -5,11 +5,16 @@ const MAIN = "uid://d3a1yipnafmhy"
 @onready var scene_transition_rect: ColorRect = $SceneTransition
 signal scene_transition_finished
 
+var changing_scene: bool = false
+
 func _ready() -> void:
 	scene_transition("fade_in", 0.5)
 
 
 func _on_play_button_pressed() -> void:
+	if changing_scene: return
+	
+	changing_scene = true
 	scene_transition("fade_out")
 	SoundManager.switch_music("game", 0.5)
 	await scene_transition_finished

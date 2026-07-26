@@ -63,6 +63,5 @@ vertical_alignment = 1
 path_desired_distance = 10.0
 path_postprocessing = 1
 avoidance_enabled = true
-radius = 310.46
 debug_path_custom_point_size = 9.4
 debug_path_custom_line_width = 4.03

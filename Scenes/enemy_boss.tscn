@@ -1,0 +1,208 @@
+[gd_scene format=3 uid="uid://cilvw4ochwlfx"]
+
+[ext_resource type="PackedScene" uid="uid://m26rta5efifc" path="res://Scenes/enemy_base.tscn" id="1_03pj2"]
+[ext_resource type="Script" uid="uid://466vnuul8nse" path="res://Scripts/enemy_boss.gd" id="2_w5ahq"]
+[ext_resource type="Texture2D" uid="uid://drb1a12rwh5tr" path="res://Assets/boss_lower_body.png" id="3_pbt5j"]
+[ext_resource type="PackedScene" uid="uid://btcjamx8ut1eo" path="res://Scenes/enemy_1.tscn" id="3_w5ahq"]
+[ext_resource type="Texture2D" uid="uid://y4s7ny4fk6gw" path="res://Assets/boss_upper_body.png" id="4_upulu"]
+[ext_resource type="Texture2D" uid="uid://b71h5gqmwk5y5" path="res://Assets/New Piskel (2).png" id="6_upulu"]
+[ext_resource type="Texture2D" uid="uid://iodtjml58llq" path="res://Assets/New Piskel (3).png" id="7_1cb30"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1cb30"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(0, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cmn1s"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(0, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jpjxf"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(1000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xv38g"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(2000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3sow"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(3000, 0, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7uv1g"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(0, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a0vro"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(1000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7bbx"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(2000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28kbb"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(3000, 1000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni181"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(0, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cy8yv"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(1000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35pmy"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(2000, 2000, 1000, 1000)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rhedw"]
+atlas = ExtResource("3_pbt5j")
+region = Rect2(3000, 2000, 1000, 1000)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_wgkfh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1cb30")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cmn1s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jpjxf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xv38g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3sow")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7uv1g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a0vro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7bbx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28kbb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni181")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cy8yv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35pmy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rhedw")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_jwqgc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0a874"]
+resource_name = "damage"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.07, 0.14),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(2.454227, 2.454227, 2.454227, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_lssre"]
+resource_name = "death_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_upulu"]
+_data = {
+&"RESET": SubResource("Animation_jwqgc"),
+&"damage": SubResource("Animation_0a874"),
+&"death_animation": SubResource("Animation_lssre")
+}
+
+[node name="EnemyBoss" unique_id=1215662046 instance=ExtResource("1_03pj2")]
+script = ExtResource("2_w5ahq")
+minion_scene = ExtResource("3_w5ahq")
+max_health = 700
+dash_speed = 600.0
+burst_count = 8
+burst_fire_rate = 0.08
+spread_angle_deg = 10.0
+chase_threshold = 600
+retreat_threshold = 300
+
+[node name="Sprites" parent="." index="2" unique_id=1064157121]
+scale = Vector2(0.22, 0.22)
+
+[node name="Lower" type="AnimatedSprite2D" parent="Sprites" index="0" unique_id=388605558]
+rotation = 1.5707964
+sprite_frames = SubResource("SpriteFrames_wgkfh")
+animation = &"walk"
+offset = Vector2(0, -77.155)
+
+[node name="Upper" type="Sprite2D" parent="Sprites" index="1" unique_id=1314736232]
+rotation = 1.5707964
+texture = ExtResource("4_upulu")
+offset = Vector2(0, -77.155)
+
+[node name="Sprite" parent="." index="3" unique_id=1002090181]
+visible = false
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="." index="9" unique_id=1443230248]
+offset_left = -78.0
+offset_top = -64.0
+offset_right = 50.0
+offset_bottom = -32.0
+rotation = 1.5707964
+texture_under = ExtResource("6_upulu")
+texture_progress = ExtResource("7_1cb30")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="10" unique_id=94583317]
+libraries/ = SubResource("AnimationLibrary_upulu")

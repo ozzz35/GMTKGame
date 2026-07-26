@@ -1,4 +1,4 @@
-extends Node2D
+class_name EnemySpawnerBase extends Node2D
 
 @export var enemy_scene : PackedScene
 @onready var enemy_root: Node2D = $"../../EnemyLayer"
@@ -13,6 +13,7 @@ func _ready() -> void:
 	player = get_tree().get_first_node_in_group("character")
 
 func spawn_enemy():
+	await get_tree().process_frame
 	await get_tree().process_frame
 	if enemy_scene == null:
 		push_error("Enemy scene not assigned.")

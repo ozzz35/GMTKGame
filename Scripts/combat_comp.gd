@@ -131,7 +131,6 @@ func take_hit(damage : int, from_pos : Vector2):
 	took_damage.emit(damage, from_pos)
 	health_changed.emit(health)
 	
-	print(health)
 	EventBus.health_changed.emit(health)
 	
 	if health <= 0:

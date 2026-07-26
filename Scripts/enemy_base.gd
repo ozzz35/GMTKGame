@@ -4,8 +4,8 @@ class_name EnemyBase
 signal enemy_died
 
 var speed: float = 200
-var chase_threshold: int = 1000
-var retreat_threshold: int = 500
+@export var chase_threshold: int = 1000
+@export var retreat_threshold: int = 500
 var movement_direction: Vector2 
 var detection_range: float = 1000.0
 
@@ -58,8 +58,9 @@ var current_labels: Array[Label] = []
 var last_damage_label: Label
 var last_damage: int
 
+var damage: int = 10
+
 func _ready() -> void:
-	
 	EventBus.switched_dimensions.connect(_on_dimentions_changed)
 	
 	chase_timer.wait_time = chase_timeout
@@ -243,13 +244,16 @@ func go_to(pos: Vector2):
 
 func shoot(dir : Vector2):
 	if !dimention_change:
+		damage = randi_range(2,5)
+		
 		var bullet : Area2D = bullet_scene.instantiate()
 		
 		bullet.global_position = global_position
 		
 		var error = deg_to_rad(5)
 		dir = dir.rotated(randf_range(-error, error))
-		
+		print(damage)
+		bullet.damage = damage
 		bullet.rotation = dir.angle()
 		bullet.direction = -dir.normalized()
 		bullet.player = false
