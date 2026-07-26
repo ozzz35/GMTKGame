@@ -122,6 +122,9 @@ func take_damage(damage: int) -> void:
 	
 	if not is_phase_two and health <= (max_health / 2):
 		enter_phase_two()
+	
+	if health <= 0:
+		pass
 
 func enter_phase_two() -> void:
 	is_phase_two = true

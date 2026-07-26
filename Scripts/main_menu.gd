@@ -26,7 +26,7 @@ func _on_options_button_pressed() -> void:
 
 
 func _on_quit_button_pressed() -> void:
-	pass
+	get_tree().quit()
 
 func scene_transition(mode: String, duration: float = 1): #either fade_in or fade_out
 	scene_transition_rect.show()

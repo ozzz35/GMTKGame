@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ybi2tix4dkjw" path="res://Scenes/scene_transition.tscn" id="5_kry3j"]
 [ext_resource type="Texture2D" uid="uid://b71h5gqmwk5y5" path="res://Assets/New Piskel (2).png" id="6_6bp64"]
 [ext_resource type="Texture2D" uid="uid://iodtjml58llq" path="res://Assets/New Piskel (3).png" id="7_344ge"]
+[ext_resource type="FontFile" uid="uid://bkn74u4qia75y" path="res://Assets/fonts/MotionControl-BoldItalic.otf" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://b0b4re00jlyky" path="res://Scenes/pause_menu.tscn" id="10_hptm8"]
 
 [node name="Main" type="Node2D" unique_id=727275460]
@@ -26,15 +27,28 @@ script = ExtResource("3_8gbba")
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -864.0
+offset_left = -634.0
 offset_top = 63.0
 offset_right = -70.0
-offset_bottom = 230.0
+offset_bottom = 176.0
 grow_horizontal = 0
 theme_override_fonts/font = ExtResource("5_21xkr")
-theme_override_font_sizes/font_size = 166
+theme_override_font_sizes/font_size = 112
 text = "[bullets_left]"
 horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="UI/BulletsLeft" unique_id=1009026332]
+layout_mode = 0
+offset_left = 4.0
+offset_top = -28.0
+offset_right = 415.0
+offset_bottom = 35.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_6iyac")
+theme_override_font_sizes/font_size = 48
+text = "Ammo:"
 
 [node name="TextureProgressBar" type="TextureProgressBar" parent="UI" unique_id=1986372082]
 anchors_preset = 10
@@ -49,13 +63,26 @@ tint_over = Color(1, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
 
 [node name="DimensionTimerLabel" type="Label" parent="UI" unique_id=304046088]
-offset_left = 81.0
-offset_top = 57.0
-offset_right = 709.0
-offset_bottom = 224.0
+offset_left = 80.0
+offset_top = 85.0
+offset_right = 533.0
+offset_bottom = 205.0
 theme_override_fonts/font = ExtResource("5_21xkr")
-theme_override_font_sizes/font_size = 166
+theme_override_font_sizes/font_size = 112
 text = "[time_left]"
+
+[node name="Label" type="Label" parent="UI/DimensionTimerLabel" unique_id=69645436]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -28.0
+offset_right = 371.0
+offset_bottom = 35.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_offset_x = 2
+theme_override_constants/shadow_offset_y = 2
+theme_override_fonts/font = ExtResource("10_6iyac")
+theme_override_font_sizes/font_size = 41
+text = "Dimension Change in:"
 
 [node name="SceneTransition" parent="UI" unique_id=764953799 instance=ExtResource("5_kry3j")]
 visible = false
