@@ -95,6 +95,9 @@ position = Vector2(-5033, 1934)
 [node name="EnemySpawner3" parent="Dimension1/EnemySpawners" unique_id=1676628665 instance=ExtResource("5_dsuda")]
 position = Vector2(-4493, 501.675)
 
+[node name="EnemySpawner5" parent="Dimension1/EnemySpawners" unique_id=2098482824 instance=ExtResource("5_dsuda")]
+position = Vector2(-1266, 506)
+
 [node name="EnemyLayer" type="Node2D" parent="Dimension1" unique_id=917007419]
 
 [node name="FadeBlue" type="Sprite2D" parent="Dimension1" unique_id=1689219454]
@@ -129,9 +132,6 @@ position = Vector2(-3575, 521)
 
 [node name="EnemySpawner" parent="Dimension2/EnemySpawners" unique_id=98655356 instance=ExtResource("5_dsuda")]
 position = Vector2(-3206, 520)
-
-[node name="EnemySpawner2" parent="Dimension2/EnemySpawners" unique_id=2098482824 instance=ExtResource("5_dsuda")]
-position = Vector2(-1266, 506)
 
 [node name="EnemySpawner4" parent="Dimension2/EnemySpawners" unique_id=1054551502 instance=ExtResource("5_dsuda")]
 position = Vector2(-5844, 1939)
