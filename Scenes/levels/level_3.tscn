@@ -2,9 +2,25 @@
 
 [ext_resource type="Script" uid="uid://bf5p8flk1lb5v" path="res://Scripts/dimension_base.gd" id="1_863cj"]
 [ext_resource type="Script" uid="uid://3nr255ikp0am" path="res://Scripts/levels/level_3.gd" id="1_tsnyi"]
+[ext_resource type="Shader" uid="uid://kcg683e2qrfq" path="res://Scenes/levels/clouds.gdshader" id="2_x6hu1"]
 [ext_resource type="TileSet" uid="uid://d1vklk4he6g1e" path="res://main_tileset.tres" id="4_8q1ft"]
 [ext_resource type="PackedScene" uid="uid://cokv75whlmsjh" path="res://Scenes/enemy_spawner.tscn" id="5_xrn22"]
 [ext_resource type="PackedScene" uid="uid://cilvw4ochwlfx" path="res://Scenes/enemy_boss.tscn" id="7_863cj"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_863cj"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_tsnyi"]
+noise = SubResource("FastNoiseLite_863cj")
+seamless = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hip6n"]
+shader = ExtResource("2_x6hu1")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_tsnyi")
+shader_parameter/speed = Vector2(0.05, 0.02)
+shader_parameter/density = 0.3990000189525
+shader_parameter/softness = 0.95800004480648
+shader_parameter/sky_color = Color(0.2, 0.5, 0.9, 1)
+shader_parameter/cloud_color = Color(1, 1, 1, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_bfs5l"]
 vertices = PackedVector2Array(-8186, 18310, -8454, 18310, -8454, 17530, -8186, 17530, -1274, 14586, -1274, 16390, -6534, 16390, -6534, 15750, -8198, 15750, -8198, 15226, -6534, 15226, -6534, 14586, -1274, 11130, -1274, 11526, -3706, 11526, -3718, 11130, -3718, 13190, -3706, 12794, -1274, 13190, -1274, 12794, -959.71094, 12166, -3163.3438, 12166, -3163.3438, 12068.656, -960.10156, 12068.656, -6522, 6394, -6522, 6790, -6906, 6790, -7302, 6394, -6906, 7930, -5668.6563, 7930, -5668.6563, 8198, -7046, 8198, -7046, 7930, -6918, 7930, -6918, 6790, -7302, 6790, -4474, 8186, -3748.6563, 8186, -3748.6563, 8198, -5126, 8198, -5126, 7930, -4474, 7930, -1402, 8198, -3206, 8198, -3206, 7930, -1402, 7930, -979.1797, 7302, -5979.3438, 7302, -5979.3438, 6194.2734, -983.97656, 6100.711, 2522.4766, 200.45313, 2524.5078, 1235.5391, 278.92188, 1240.4375, 287.0625, 177.54688)
@@ -63,6 +79,13 @@ size = Vector2(91.5, 724.48944)
 
 [node name="level_3" type="Node2D" unique_id=106669618]
 script = ExtResource("1_tsnyi")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=657463538]
+material = SubResource("ShaderMaterial_hip6n")
+offset_left = -11611.0
+offset_top = 774.0
+offset_right = 4588.0
+offset_bottom = 20252.0
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="." unique_id=710496496]
 position = Vector2(-6879, 6562)

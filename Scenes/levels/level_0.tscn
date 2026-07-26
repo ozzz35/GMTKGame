@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cxdol2jau6iko" path="res://Scripts/levels/level_0.gd" id="1_yffda"]
 [ext_resource type="Script" uid="uid://bf5p8flk1lb5v" path="res://Scripts/dimension_base.gd" id="2_d8m2y"]
+[ext_resource type="Shader" uid="uid://kcg683e2qrfq" path="res://Scenes/levels/clouds.gdshader" id="2_i7gcy"]
 [ext_resource type="Texture2D" uid="uid://1h22pgqyx7du" path="res://Assets/tileset_red.png" id="3_ci66b"]
 [ext_resource type="TileSet" uid="uid://d1vklk4he6g1e" path="res://main_tileset.tres" id="4_d8m2y"]
 [ext_resource type="Texture2D" uid="uid://l0xjqic71ydr" path="res://Assets/tileset_blue.png" id="4_i7gcy"]
@@ -9,6 +10,22 @@
 [ext_resource type="Texture2D" uid="uid://dpgwl0e4ik41w" path="res://Assets/Blue_Fade.png" id="7_ci66b"]
 [ext_resource type="FontFile" uid="uid://bfjftdmbh2l22" path="res://Assets/fonts/MotionControl-Bold.otf" id="7_qikqb"]
 [ext_resource type="Texture2D" uid="uid://dxx0ht6qnbk27" path="res://Assets/Better_fade.png" id="8_i7gcy"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_i7gcy"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jvdjg"]
+noise = SubResource("FastNoiseLite_i7gcy")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_di2jv"]
+shader = ExtResource("2_i7gcy")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jvdjg")
+shader_parameter/speed = Vector2(-0.009, 0.006)
+shader_parameter/density = 0.0
+shader_parameter/softness = 1.0
+shader_parameter/sky_color = Color(0.50980395, 0.44705883, 0.827451, 1)
+shader_parameter/cloud_color = Color(1, 0.007843138, 0.54901963, 1)
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_wtmes"]
 vertices = PackedVector2Array(4020.6563, 2186, 4020.6563, 550.5078, 4090.5703, 2191.1484, 2121.8828, 2221.1484, 2100.6563, 2186, 2100.6563, 3850, 2141.8672, 3884.0234, -1769.9688, 3892.9688, -1716.6563, 3850, -1765.0234, 1919.5469, -1716.6563, 2422, -817.96094, 1876.4609, -1654, 2422, 778, 3380.6563, 778, 2996.6563, 1332.6563, 2996.6563, 1398, 3318, 1270, 2422, 1270, 2934, 778, 2934, 778, 1716.6563, 2442, 1716.6563, 2442, 1460.6563, 2954, 1460.6563, 3446, 1782, 2954, 1398, 2442, 1398, 2442, 820.65625, 3958, 820.65625, 3958, 1782, 3446, 1844.6563, 3958, 1844.6563, 3958, 2038, 1782, 2038, 1782, 2100.6563, 2038, 2100.6563, 2038, 2678, 1654, 2678, 1332.6563, 2422, 1654, 2740.6563, 2038, 2740.6563, 2038, 3318, 1398, 3380.6563, 2038, 3380.6563, 2038, 3702, -1654, 3702, 2329.789, 138, 2379.3438, 138, 2379.3438, 1654, 2250.461, 1554.9688, 715.34375, 1654, 633.0781, 1559.9609, 647.0781, 3217.8984, 715.34375, 3318, -843.34375, 3318, -812.96094, 3233.1016, -843.34375, 2422, -906, 2422, -906, 3380.6563, -1716.6563, 138, 1153.8672, 138, -1833.25, 173.85938, -1735.6719, -1193.2422, -1716.6563, -1162, -107.11719, -1236.7422, -100.46094, -1162, -75.34375, -394, -75.34375, -880.15625, -38.148438, -463.0078, 3980.1484, -394, 3977.4063, -458.0078, 3958, -331.34375, 3958, 502, 3446, 502, 3082, 308.65625, 3082, 246, 3446, 564.65625, 3958, 564.65625, 3958, 758, 2442, 758, -1654, -10, -1654, -1099.3438, -138, -1099.3438, -138, -331.34375, 2442, -10, 2550, 246, 2550, 308.65625)
@@ -62,6 +79,13 @@ size = Vector2(91.5, 724.48944)
 
 [node name="Level0" type="Node2D" unique_id=1092754582]
 script = ExtResource("1_yffda")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2144850719]
+material = SubResource("ShaderMaterial_di2jv")
+offset_left = -7670.0
+offset_top = -5134.0
+offset_right = 8529.0
+offset_bottom = 8254.0
 
 [node name="PlayerSpawnPoint" type="Node2D" parent="." unique_id=382395583]
 position = Vector2(-913, -421)
