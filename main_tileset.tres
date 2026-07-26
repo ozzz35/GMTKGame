@@ -1,5 +1,10 @@
 [gd_resource type="TileSet" format=3 uid="uid://d1vklk4he6g1e"]
 
+[ext_resource type="Texture2D" uid="uid://1h22pgqyx7du" path="res://Assets/tileset_red.png" id="1_icbku"]
+[ext_resource type="Texture2D" uid="uid://c8nb6kxbrhodo" path="res://Assets/red_tileset.png" id="2_hpy0s"]
+[ext_resource type="Texture2D" uid="uid://dcwo1t2v8qrsu" path="res://Assets/red_tileset_edged.png" id="3_3ckf4"]
+[ext_resource type="Texture2D" uid="uid://ijbyj8a20nwy" path="res://Assets/blue_tileset_edged.png" id="4_hpy0s"]
+
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_x6hu1"]
 load_path = "res://.godot/imported/tileset_blue.png-76a4c0e165f9770d757ce875dce27342.ctex"
 
@@ -44,8 +49,54 @@ texture_region_size = Vector2i(128, 128)
 7:0/0 = 0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-64, -64, -21.333332, -64, -21.333332, -21.333332, -64, -21.333332)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2fsdn"]
+texture = ExtResource("1_icbku")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a50ld"]
+texture = ExtResource("2_hpy0s")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_btehj"]
+texture = ExtResource("3_3ckf4")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ckf4"]
+texture = ExtResource("4_hpy0s")
+texture_region_size = Vector2i(128, 128)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
 [resource]
 tile_size = Vector2i(128, 128)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_d8m2y")
 sources/1 = SubResource("TileSetAtlasSource_icbku")
+sources/2 = SubResource("TileSetAtlasSource_2fsdn")
+sources/3 = SubResource("TileSetAtlasSource_a50ld")
+sources/4 = SubResource("TileSetAtlasSource_btehj")
+sources/5 = SubResource("TileSetAtlasSource_3ckf4")
