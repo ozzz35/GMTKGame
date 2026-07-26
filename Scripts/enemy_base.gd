@@ -194,7 +194,7 @@ func state_action(delta):
 	
 	if shoot_timer <= 0:
 		shoot((global_position - character.global_position).normalized())
-		shoot_timer = randf_range(2.0, 4.0)
+		shoot_timer = randf_range(0.5, 1.0)
 	
 	
 	strafe_timer += delta
@@ -244,7 +244,6 @@ func go_to(pos: Vector2):
 
 func shoot(dir : Vector2):
 	if !dimention_change:
-		damage = randi_range(2,5)
 		
 		var bullet : Area2D = bullet_scene.instantiate()
 		
@@ -300,6 +299,8 @@ func damage_shake():
 			randf_range(-shake_amount, shake_amount),
 			randf_range(-shake_amount, shake_amount)
 		)
+		if not is_inside_tree():
+			return
 		await get_tree().process_frame
 	
 	sprites.position = original_position

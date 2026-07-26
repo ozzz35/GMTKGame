@@ -10,10 +10,17 @@ var current_level_node: LevelBase = null
 
 var pause_menu_on: bool = false
 
+const MAIN_MENU = "uid://n2m4av5y6sbv"
+
 func _ready() -> void:
 	EventBus.level_load.connect(next_level)
-	load_level(0)
+	load_level(current_level_index)
+	
+	EventBus.boss_died.connect(quit_to_main_menu)
+	EventBus.character_died.connect(_on_player_died)
 
+func _on_player_died():
+	current_level_node.spawn_player()
 
 func load_level(index: int) -> void:
 	if index < 0 or index >= level_scenes.size():
@@ -47,4 +54,4 @@ func pause_menu_on_off():
 	pause_menu_on = !pause_menu_on
 
 func quit_to_main_menu():
-	pass
+	get_tree().change_scene_to_file(MAIN_MENU)

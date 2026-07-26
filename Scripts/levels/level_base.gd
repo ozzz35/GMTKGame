@@ -71,7 +71,7 @@ func spawn_player() -> void:
 		player_instance.global_position = player_spawn_point.global_position
 	
 	if entity_layer:
-		entity_layer.add_child(player_instance)
+		entity_layer.call_deferred("add_child", player_instance)
 	else:
 		add_child(player_instance)
 

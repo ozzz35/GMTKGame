@@ -124,7 +124,7 @@ func take_damage(damage: int) -> void:
 		enter_phase_two()
 	
 	if health <= 0:
-		pass
+		EventBus.boss_died.emit()
 
 func enter_phase_two() -> void:
 	is_phase_two = true

@@ -20,6 +20,7 @@ func _ready() -> void:
 	EventBus.level_completed.connect(play)
 
 func play(level: int):
+	level += 1
 	show()
 	var start: bool = false
 	

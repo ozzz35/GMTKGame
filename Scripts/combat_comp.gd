@@ -135,10 +135,11 @@ func take_hit(damage : int, from_pos : Vector2):
 	
 	if health <= 0:
 		dead = true
-		is_dead.emit()
+		death()
 		return
 
 func death():
+	EventBus.character_died.emit()
 	is_dead.emit()
 	base.queue_free()
 

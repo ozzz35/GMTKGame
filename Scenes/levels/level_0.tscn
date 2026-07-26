@@ -43,32 +43,8 @@ texture_region_size = Vector2i(128, 128)
 8:0/0 = 0
 9:0/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jvdjg"]
-texture_region_size = Vector2i(128, 128)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_di2jv"]
-texture_region_size = Vector2i(128, 128)
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_qyddi"]
 tile_size = Vector2i(128, 128)
-sources/4 = SubResource("TileSetAtlasSource_jvdjg")
-sources/5 = SubResource("TileSetAtlasSource_di2jv")
 sources/1 = SubResource("TileSetAtlasSource_dkwd7")
 sources/2 = SubResource("TileSetAtlasSource_w8hxj")
 
@@ -91,11 +67,11 @@ script = ExtResource("1_yffda")
 position = Vector2(-913, -421)
 
 [node name="Dimension1" type="Node2D" parent="." unique_id=1502965341]
-visible = false
 script = ExtResource("2_d8m2y")
 color = "blue"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Dimension1" unique_id=2136343779]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_wtmes")
 
 [node name="Floor" type="TileMapLayer" parent="Dimension1" unique_id=671847284 groups=["dimension2_group"]]
@@ -126,11 +102,11 @@ scale = Vector2(1.7138617, 1.8013245)
 texture = ExtResource("7_ci66b")
 
 [node name="Dimension2" type="Node2D" parent="." unique_id=615044367]
-visible = false
 script = ExtResource("2_d8m2y")
 color = "red"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="Dimension2" unique_id=1085825235]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_qikqb")
 
 [node name="Floor" type="TileMapLayer" parent="Dimension2" unique_id=1885541259 groups=["dimension2_group"]]
