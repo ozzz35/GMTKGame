@@ -20,15 +20,20 @@ func _ready() -> void:
 	EventBus.character_died.connect(_on_player_died)
 
 func _on_player_died():
-	current_level_node.spawn_player()
+	if is_instance_valid(current_level_node):
+		current_level_node.spawn_player()
 
 func load_level(index: int) -> void:
 	if index < 0 or index >= level_scenes.size():
 		print("Invalid level index")
 		return
 		
-	if current_level_node != null:
+	get_tree().paused = false
+		
+	if is_instance_valid(current_level_node):
+		levels_container.remove_child(current_level_node)
 		current_level_node.queue_free()
+		current_level_node = null
 		
 	var new_level_scene = level_scenes[index]
 	current_level_node = new_level_scene.instantiate() as LevelBase
@@ -37,6 +42,9 @@ func load_level(index: int) -> void:
 	current_level_index = index
 
 func next_level() -> void:
+	call_deferred("_safe_load_next_level")
+
+func _safe_load_next_level() -> void:
 	load_level(current_level_index + 1)
 
 func _unhandled_input(event: InputEvent) -> void:

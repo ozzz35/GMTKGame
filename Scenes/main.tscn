@@ -12,10 +12,34 @@
 [ext_resource type="Texture2D" uid="uid://iodtjml58llq" path="res://Assets/New Piskel (3).png" id="7_344ge"]
 [ext_resource type="FontFile" uid="uid://bkn74u4qia75y" path="res://Assets/fonts/MotionControl-BoldItalic.otf" id="10_6iyac"]
 [ext_resource type="PackedScene" uid="uid://b0b4re00jlyky" path="res://Scenes/pause_menu.tscn" id="10_hptm8"]
+[ext_resource type="Shader" uid="uid://kcg683e2qrfq" path="res://Scenes/levels/clouds.gdshader" id="13_fdnlq"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_jkdf5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_jvdjg"]
+noise = SubResource("FastNoiseLite_jkdf5")
+seamless = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wsu2k"]
+shader = ExtResource("13_fdnlq")
+shader_parameter/noise_texture = SubResource("NoiseTexture2D_jvdjg")
+shader_parameter/speed = Vector2(-0.009, 0.006)
+shader_parameter/density = 0.0
+shader_parameter/softness = 1.0
+shader_parameter/sky_color = Color(0.50980395, 0.44705883, 0.827451, 1)
+shader_parameter/cloud_color = Color(1, 0.007843138, 0.54901963, 1)
 
 [node name="Main" type="Node2D" unique_id=727275460]
 script = ExtResource("1_jjvhh")
 level_scenes = Array[PackedScene]([ExtResource("1_bo1nx"), ExtResource("3_ynf5e"), ExtResource("4_hptm8"), ExtResource("5_hptm8")])
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1567804539]
+material = SubResource("ShaderMaterial_wsu2k")
+offset_left = -28342.0
+offset_top = -5134.0
+offset_right = 8529.0
+offset_bottom = 35997.0
 
 [node name="Levels" type="Node2D" parent="." unique_id=1277246378]
 
