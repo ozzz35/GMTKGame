@@ -169,6 +169,16 @@ patch_margin_top = 24
 patch_margin_right = 24
 patch_margin_bottom = 24
 
+[node name="TextureRect" type="TextureRect" parent="." unique_id=633916580]
+layout_mode = 0
+offset_left = 914.0
+offset_top = 67.0
+offset_right = 1880.0
+offset_bottom = 1128.0
+texture = ExtResource("5_n45e2")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="SceneTransition" type="ColorRect" parent="." unique_id=2071840013]
 visible = false
 layout_mode = 1
@@ -179,16 +189,6 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 color = Color(0, 0, 0, 1)
-
-[node name="TextureRect" type="TextureRect" parent="." unique_id=633916580]
-layout_mode = 0
-offset_left = 914.0
-offset_top = 67.0
-offset_right = 1880.0
-offset_bottom = 1128.0
-texture = ExtResource("5_n45e2")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="AudioOptions" parent="." unique_id=1065075208 instance=ExtResource("4_ce3w2")]
 visible = false
