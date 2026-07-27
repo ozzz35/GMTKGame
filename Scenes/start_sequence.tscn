@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://8smg5pxu4xm5"]
+
+[ext_resource type="VideoStream" uid="uid://dq2dk1vh3m8dt" path="res://Assets/0001-0452.ogv" id="1_7xbvk"]
+[ext_resource type="Script" uid="uid://enuuxxia2i3y" path="res://Scenes/start_sequence.gd" id="1_l2rig"]
+[ext_resource type="FontFile" uid="uid://blhokp1pe4ud8" path="res://Assets/fonts/Leander.ttf" id="3_l2rig"]
+
+[node name="Start_sequence" type="Control" unique_id=1841807367]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l2rig")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=477535483]
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="CanvasLayer" unique_id=1199077236]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+stream = ExtResource("1_7xbvk")
+autoplay = true
+bus = &"SFX"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer" unique_id=1513086706]
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -147.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/default_color = Color(0.7779594, 0.43540245, 0.43119717, 0.53333336)
+theme_override_fonts/normal_font = ExtResource("3_l2rig")
+theme_override_font_sizes/normal_font_size = 166
+bbcode_enabled = true
+fit_content = true
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
